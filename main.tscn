@@ -1,3 +1,10 @@
 [gd_scene format=3 uid="uid://dvj8xtfoeej8s"]
 
+[ext_resource type="Script" uid="uid://b7fsc103gksdp" path="res://main.gd" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://d1xty4a8kh4rx" path="res://json_loader.gd" id="2_0xm2m"]
+
 [node name="Main" type="Node" unique_id=1393547842]
+script = ExtResource("1_ig7tw")
+
+[node name="JsonLoader" type="Node" parent="." unique_id=23425086]
+script = ExtResource("2_0xm2m")
