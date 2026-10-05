@@ -1,0 +1,157 @@
+[gd_scene format=3 uid="uid://dqppi0cqf6p0u"]
+
+[ext_resource type="Script" uid="uid://byy6cwqfhkksu" path="res://scenes/tela_login.gd" id="1_6vh5b"]
+[ext_resource type="StyleBox" uid="uid://b7gocd1bhbtq8" path="res://scenes/styles/inputText.tres" id="1_u7q5y"]
+[ext_resource type="StyleBox" uid="uid://7f4ipraxjrf1" path="res://scenes/styles/inputTextFocus.tres" id="2_b5xmg"]
+[ext_resource type="Script" uid="uid://cyilsbmlhtt3m" path="res://scenes/apiUsuario.gd" id="4_ulo28"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j5ejg"]
+bg_color = Color(0.95686275, 1, 0.9372549, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g6h07"]
+bg_color = Color(0.5882353, 0.8784314, 0.44705883, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4y8c4"]
+bg_color = Color(0.95686275, 1, 0.9372549, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+shadow_size = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2hnxv"]
+bg_color = Color(0.5882353, 0.8784314, 0.44705883, 1)
+
+[node name="TelaLogin" type="Control" unique_id=15757516]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6vh5b")
+
+[node name="Background" type="Panel" parent="." unique_id=2014788461]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_j5ejg")
+
+[node name="Header" type="Panel" parent="." unique_id=269743081]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -446.0
+offset_bottom = -302.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_g6h07")
+
+[node name="Titulo" type="Label" parent="Header" unique_id=224108209]
+layout_mode = 0
+offset_right = 1919.0
+offset_bottom = 141.0
+theme_override_font_sizes/font_size = 60
+text = "StudyDays"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="." unique_id=1012555532]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -344.0
+offset_top = -776.0
+offset_right = 341.0
+offset_bottom = -208.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_4y8c4")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Panel" unique_id=1515368974]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Título" type="Label" parent="Panel/VBoxContainer2" unique_id=1627211162]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Login"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=898084644]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 69.0
+offset_right = -10.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 13
+
+[node name="UsuarioLabel" type="Label" parent="Panel/VBoxContainer" unique_id=867598460]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Usuário"
+
+[node name="UsuarioInput" type="TextEdit" parent="Panel/VBoxContainer" unique_id=469091238]
+custom_minimum_size = Vector2(650, 50)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = ExtResource("1_u7q5y")
+theme_override_styles/focus = ExtResource("2_b5xmg")
+placeholder_text = "Digite Seu Usuário"
+
+[node name="SenhaLabel" type="Label" parent="Panel/VBoxContainer" unique_id=1016727744]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Senha"
+
+[node name="SenhaInput" type="TextEdit" parent="Panel/VBoxContainer" unique_id=1472526767]
+custom_minimum_size = Vector2(650, 50)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = ExtResource("1_u7q5y")
+theme_override_styles/focus = ExtResource("2_b5xmg")
+placeholder_text = "Digite Sua Senha"
+
+[node name="login" type="Button" parent="Panel/VBoxContainer" unique_id=1372965464]
+custom_minimum_size = Vector2(600, 65)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_2hnxv")
+text = "Entrar"
+
+[node name="ApiTelaLogin" type="Node" parent="." unique_id=1552034397]
+script = ExtResource("4_ulo28")
+
+[connection signal="pressed" from="Panel/VBoxContainer/login" to="." method="_on_login_pressed"]

@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dvj8xtfoeej8s"]
+
+[ext_resource type="PackedScene" uid="uid://dqppi0cqf6p0u" path="res://scenes/tela_login.tscn" id="1_o5qli"]
+
+[node name="Main" type="Control" unique_id=371066147]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TelaLogin" parent="." unique_id=15757516 instance=ExtResource("1_o5qli")]
+layout_mode = 1
