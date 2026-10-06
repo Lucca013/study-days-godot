@@ -1,0 +1,155 @@
+[gd_scene format=3 uid="uid://dey0h10gfyqcc"]
+
+[ext_resource type="Script" uid="uid://cbv258y0tjunm" path="res://scenes/tela_ranking.gd" id="1_d8tbs"]
+[ext_resource type="Script" uid="uid://nchw41emjobg" path="res://scenes/api_tela_ranking.gd" id="2_jdsb8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_idj0q"]
+bg_color = Color(0.95686275, 1, 0.9372549, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d8tbs"]
+bg_color = Color(0.5882353, 0.8784314, 0.44705883, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jdsb8"]
+bg_color = Color(0.95686275, 1, 0.9372549, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+shadow_size = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_73ebo"]
+bg_color = Color(0.5882353, 0.8784314, 0.44705883, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g6h07"]
+bg_color = Color(0.5882353, 0.8784314, 0.44705883, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j5ejg"]
+bg_color = Color(0.5882353, 0.8784314, 0.44705883, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[node name="tela_ranking" type="Control" unique_id=836834664]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_d8tbs")
+
+[node name="Background" type="Panel" parent="." unique_id=212392870]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_idj0q")
+
+[node name="Header" type="Panel" parent="." unique_id=1343719962]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -446.0
+offset_bottom = -302.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_d8tbs")
+
+[node name="Titulo" type="Label" parent="Header" unique_id=1067064244]
+layout_mode = 0
+offset_right = 1919.0
+offset_bottom = 141.0
+theme_override_font_sizes/font_size = 60
+text = "StudyDays"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="." unique_id=1126134848]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -897.0
+offset_top = -776.0
+offset_right = 888.0
+offset_bottom = -88.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_jdsb8")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=1326876564]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Titulo" type="Label" parent="Panel/VBoxContainer" unique_id=409275363]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Ranking"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="Panel/VBoxContainer" unique_id=1462032082]
+layout_mode = 2
+
+[node name="tabela" type="GridContainer" parent="Panel/VBoxContainer/CenterContainer" unique_id=815417629]
+unique_name_in_owner = true
+layout_mode = 2
+columns = 3
+
+[node name="posicao" type="Label" parent="Panel/VBoxContainer/CenterContainer/tabela" unique_id=945110696]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_73ebo")
+text = "Posição"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="jogador" type="Label" parent="Panel/VBoxContainer/CenterContainer/tabela" unique_id=2078380275]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_g6h07")
+text = "Jogador"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="pontuacao" type="Label" parent="Panel/VBoxContainer/CenterContainer/tabela" unique_id=45418682]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_j5ejg")
+text = "Pontuação"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ApiTelaRanking" type="Node" parent="." unique_id=1607450280]
+script = ExtResource("2_jdsb8")
+
+[connection signal="dadosTelaRankingRecebidos" from="ApiTelaRanking" to="." method="_on_dados_recebidos"]

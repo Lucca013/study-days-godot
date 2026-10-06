@@ -154,4 +154,17 @@ text = "Entrar"
 [node name="ApiTelaLogin" type="Node" parent="." unique_id=1552034397]
 script = ExtResource("4_ulo28")
 
+[node name="ErroLabel" type="Label" parent="." unique_id=308661653]
+layout_mode = 0
+offset_left = 617.0
+offset_top = 873.0
+offset_right = 1300.0
+offset_bottom = 925.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Erro! Usuário não encontrado, por favor digitar novamente"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="pressed" from="Panel/VBoxContainer/login" to="." method="_on_login_pressed"]
+[connection signal="apiRetorno" from="ApiTelaLogin" to="." method="_on_api_tela_login_api_retorno"]

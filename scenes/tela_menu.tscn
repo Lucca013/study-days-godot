@@ -1,0 +1,139 @@
+[gd_scene format=3 uid="uid://cdf0s57qwhpjy"]
+
+[ext_resource type="Script" uid="uid://cfxtjlbah82ia" path="res://scenes/tela_menu.gd" id="1_ayl78"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b12lk"]
+bg_color = Color(0.95686275, 1, 0.9372549, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ayl78"]
+bg_color = Color(0.5882353, 0.8784314, 0.44705883, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k3oku"]
+bg_color = Color(0.95686275, 1, 0.9372549, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+shadow_size = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eupey"]
+bg_color = Color(0.5882353, 0.8784314, 0.44705883, 1)
+
+[node name="tela_menu" type="Control" unique_id=282388732]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ayl78")
+
+[node name="Background" type="Panel" parent="." unique_id=2140853990]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_b12lk")
+
+[node name="Header" type="Panel" parent="." unique_id=706369158]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -446.0
+offset_bottom = -302.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ayl78")
+
+[node name="Titulo" type="Label" parent="Header" unique_id=1308808273]
+layout_mode = 0
+offset_right = 1919.0
+offset_bottom = 141.0
+theme_override_font_sizes/font_size = 60
+text = "StudyDays"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="." unique_id=537454177]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -344.0
+offset_top = -776.0
+offset_right = 341.0
+offset_bottom = -208.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_k3oku")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=1638649615]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Titulo" type="Label" parent="Panel/VBoxContainer" unique_id=740454277]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Menu"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="novoJogo" type="Button" parent="Panel/VBoxContainer" unique_id=269690339]
+custom_minimum_size = Vector2(600, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_eupey")
+text = "Novo Jogo"
+
+[node name="carregarJogo" type="Button" parent="Panel/VBoxContainer" unique_id=62531986]
+custom_minimum_size = Vector2(600, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_eupey")
+text = "Carregar Jogo"
+
+[node name="ranking" type="Button" parent="Panel/VBoxContainer" unique_id=799006120]
+custom_minimum_size = Vector2(600, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_eupey")
+text = "Ranking"
+
+[node name="sair" type="Button" parent="Panel/VBoxContainer" unique_id=37841166]
+custom_minimum_size = Vector2(600, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_eupey")
+text = "Sair"
+
+[connection signal="pressed" from="Panel/VBoxContainer/ranking" to="." method="_on_ranking_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/sair" to="." method="_on_sair_pressed"]
