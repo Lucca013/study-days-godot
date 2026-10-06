@@ -96,18 +96,7 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_jdsb8")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=1326876564]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="VScrollBar" type="VScrollBar" parent="Panel/VBoxContainer" unique_id=236118204]
-layout_mode = 2
-
-[node name="Titulo" type="Label" parent="Panel/VBoxContainer/VScrollBar" unique_id=409275363]
+[node name="Titulo" type="Label" parent="Panel" unique_id=409275363]
 layout_mode = 0
 offset_top = 12.0
 offset_right = 1785.0
@@ -119,20 +108,13 @@ text = "Ranking"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CenterContainer" type="CenterContainer" parent="Panel/VBoxContainer/VScrollBar" unique_id=1462032082]
+[node name="posicao" type="Label" parent="Panel" unique_id=945110696]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 0
+offset_left = 557.0
 offset_top = 85.0
-offset_right = 1785.0
+offset_right = 757.0
 offset_bottom = 158.0
-
-[node name="tabela" type="GridContainer" parent="Panel/VBoxContainer/VScrollBar/CenterContainer" unique_id=815417629]
-unique_name_in_owner = true
-layout_mode = 2
-columns = 3
-
-[node name="posicao" type="Label" parent="Panel/VBoxContainer/VScrollBar/CenterContainer/tabela" unique_id=945110696]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
 size_flags_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 50
@@ -141,8 +123,13 @@ text = "Posição"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="jogador" type="Label" parent="Panel/VBoxContainer/VScrollBar/CenterContainer/tabela" unique_id=2078380275]
-layout_mode = 2
+[node name="jogador" type="Label" parent="Panel" unique_id=2078380275]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 0
+offset_left = 760.0
+offset_top = 85.0
+offset_right = 960.0
+offset_bottom = 158.0
 size_flags_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 50
@@ -151,8 +138,13 @@ text = "Jogador"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="pontuacao" type="Label" parent="Panel/VBoxContainer/VScrollBar/CenterContainer/tabela" unique_id=45418682]
-layout_mode = 2
+[node name="pontuacao" type="Label" parent="Panel" unique_id=45418682]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 0
+offset_left = 961.0
+offset_top = 85.0
+offset_right = 1223.0
+offset_bottom = 158.0
 size_flags_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 50
@@ -160,6 +152,21 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_j5ejg")
 text = "Pontuação"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel" unique_id=2104006734]
+custom_minimum_size = Vector2(640, 525)
+layout_mode = 0
+offset_left = 568.0
+offset_top = 159.0
+offset_right = 1211.0
+offset_bottom = 684.0
+
+[node name="tabela" type="GridContainer" parent="Panel/ScrollContainer" unique_id=815417629]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 2
+columns = 3
 
 [node name="ApiTelaRanking" type="Node" parent="." unique_id=1607450280]
 script = ExtResource("2_jdsb8")
