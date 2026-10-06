@@ -21,3 +21,7 @@ func _on_tela_menu_sair() -> void:
 func _on_tela_cadastro_tela_login() -> void:
 	$TelaCadastro.hide()
 	$TelaLogin.show()
+	
+func _on_tela_ranking_tela_menu() -> void:
+	$TelaRanking.hide()
+	$TelaMenu.show()

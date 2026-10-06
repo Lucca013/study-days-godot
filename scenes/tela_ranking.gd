@@ -1,5 +1,7 @@
 extends Control
 
+signal telaMenu
+
 func _ready() -> void:
 	$ApiTelaRanking.requisicaoGet()
 
@@ -28,3 +30,7 @@ func construir_tela(dados):
 		%tabela.add_child(LabelPosicao)
 		%tabela.add_child(LabelNome)
 		%tabela.add_child(LabelPontuacao)
+
+
+func _on_menu_pressed() -> void:
+	telaMenu.emit()

@@ -32,5 +32,6 @@ layout_mode = 1
 
 [connection signal="telaLogin" from="TelaCadastro" to="." method="_on_tela_cadastro_tela_login"]
 [connection signal="loginSucedido" from="TelaLogin" to="." method="_on_login_sucedido"]
+[connection signal="telaMenu" from="TelaRanking" to="." method="_on_tela_ranking_tela_menu"]
 [connection signal="ranking" from="TelaMenu" to="." method="_on_tela_menu_ranking"]
 [connection signal="sair" from="TelaMenu" to="." method="_on_tela_menu_sair"]

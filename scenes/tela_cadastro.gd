@@ -23,4 +23,4 @@ func _on_login_pressed() -> void:
 func _on_api_retorno(retorno) -> void:
 	## hmm, eu n tenho certeza como eu verifico erros na requisição
 	print(retorno)
-	pass
+	telaLogin.emit()
