@@ -10,6 +10,7 @@ func _on_dados_recebidos(retorno):
 	print(retorno)
 	construir_tela(retorno)
 
+## não vai ser necessário, mas não tem um tratamento se a API retornar nenhum dado 
 func construir_tela(dados):
 	print("função construir tela")
 	var posicao : int

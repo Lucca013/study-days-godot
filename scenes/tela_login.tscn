@@ -3,13 +3,13 @@
 [ext_resource type="Script" uid="uid://byy6cwqfhkksu" path="res://scenes/tela_login.gd" id="1_6vh5b"]
 [ext_resource type="StyleBox" uid="uid://b7gocd1bhbtq8" path="res://scenes/styles/inputText.tres" id="1_u7q5y"]
 [ext_resource type="StyleBox" uid="uid://7f4ipraxjrf1" path="res://scenes/styles/inputTextFocus.tres" id="2_b5xmg"]
+[ext_resource type="StyleBox" uid="uid://cuygbstps5nsy" path="res://scenes/styles/headerStyle.tres" id="2_mbdsm"]
 [ext_resource type="Script" uid="uid://cyilsbmlhtt3m" path="res://scenes/apiUsuario.gd" id="4_ulo28"]
+[ext_resource type="StyleBox" uid="uid://cnbafflk8u850" path="res://scenes/styles/buttonStyle.tres" id="5_7lcvi"]
+[ext_resource type="StyleBox" uid="uid://dgw6s8pkc1usn" path="res://scenes/styles/buttonHoverStyle.tres" id="6_a1sbq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j5ejg"]
 bg_color = Color(0.95686275, 1, 0.9372549, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g6h07"]
-bg_color = Color(0.5882353, 0.8784314, 0.44705883, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4y8c4"]
 bg_color = Color(0.95686275, 1, 0.9372549, 1)
@@ -19,9 +19,6 @@ border_width_right = 3
 border_width_bottom = 3
 border_color = Color(0, 0, 0, 1)
 shadow_size = 2
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2hnxv"]
-bg_color = Color(0.5882353, 0.8784314, 0.44705883, 1)
 
 [node name="TelaLogin" type="Control" unique_id=15757516]
 layout_mode = 3
@@ -51,7 +48,7 @@ offset_top = -446.0
 offset_bottom = -302.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_g6h07")
+theme_override_styles/panel = ExtResource("2_mbdsm")
 
 [node name="Titulo" type="Label" parent="Header" unique_id=224108209]
 layout_mode = 0
@@ -148,7 +145,8 @@ size_flags_horizontal = 4
 size_flags_vertical = 10
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxFlat_2hnxv")
+theme_override_styles/normal = ExtResource("5_7lcvi")
+theme_override_styles/hover = ExtResource("6_a1sbq")
 text = "Entrar"
 
 [node name="ApiTelaLogin" type="Node" parent="." unique_id=1552034397]
