@@ -2,6 +2,7 @@ extends Control
 
 signal ranking
 signal sair
+var tween: Tween
 
 func _on_ranking_pressed() -> void:
 	ranking.emit()

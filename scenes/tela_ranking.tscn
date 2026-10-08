@@ -5,6 +5,7 @@
 [ext_resource type="StyleBox" uid="uid://cuygbstps5nsy" path="res://scenes/styles/headerStyle.tres" id="2_qtkdt"]
 [ext_resource type="StyleBox" uid="uid://cnbafflk8u850" path="res://scenes/styles/buttonStyle.tres" id="4_670vf"]
 [ext_resource type="StyleBox" uid="uid://dgw6s8pkc1usn" path="res://scenes/styles/buttonHoverStyle.tres" id="5_bbhuh"]
+[ext_resource type="Script" uid="uid://c2nj532iuulr0" path="res://scenes/menu.gd" id="6_40ufd"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_idj0q"]
 bg_color = Color(0.95686275, 1, 0.9372549, 1)
@@ -182,6 +183,7 @@ theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = ExtResource("4_670vf")
 theme_override_styles/hover = ExtResource("5_bbhuh")
 text = "Voltar ao Menu"
+script = ExtResource("6_40ufd")
 
 [connection signal="dadosTelaRankingRecebidos" from="ApiTelaRanking" to="." method="_on_dados_recebidos"]
 [connection signal="pressed" from="menu" to="." method="_on_menu_pressed"]

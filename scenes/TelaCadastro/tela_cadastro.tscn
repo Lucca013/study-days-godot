@@ -1,12 +1,14 @@
 [gd_scene format=3 uid="uid://xmomj7vlv1y7"]
 
-[ext_resource type="Script" uid="uid://3phv55catpn4" path="res://scenes/tela_cadastro.gd" id="1_3v3hc"]
+[ext_resource type="Script" uid="uid://3phv55catpn4" path="res://scenes/TelaCadastro/tela_cadastro.gd" id="1_3v3hc"]
 [ext_resource type="StyleBox" uid="uid://b7gocd1bhbtq8" path="res://scenes/styles/inputText.tres" id="1_uh3tn"]
 [ext_resource type="StyleBox" uid="uid://7f4ipraxjrf1" path="res://scenes/styles/inputTextFocus.tres" id="2_3v3hc"]
 [ext_resource type="StyleBox" uid="uid://cuygbstps5nsy" path="res://scenes/styles/headerStyle.tres" id="2_joois"]
-[ext_resource type="Script" uid="uid://b6bxvch8lswcy" path="res://scenes/api_tela_cadastro.gd" id="4_x57pu"]
+[ext_resource type="Script" uid="uid://b6bxvch8lswcy" path="res://scenes/TelaCadastro/api_tela_cadastro.gd" id="4_x57pu"]
 [ext_resource type="StyleBox" uid="uid://cnbafflk8u850" path="res://scenes/styles/buttonStyle.tres" id="5_og0v7"]
 [ext_resource type="StyleBox" uid="uid://dgw6s8pkc1usn" path="res://scenes/styles/buttonHoverStyle.tres" id="6_qux7l"]
+[ext_resource type="Script" uid="uid://1wr5fcym6n1h" path="res://scenes/TelaCadastro/cadastro.gd" id="7_wu7ff"]
+[ext_resource type="Script" uid="uid://c8wbyfqe1oac0" path="res://scenes/TelaCadastro/login.gd" id="8_vgpoq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x57pu"]
 bg_color = Color(0.95686275, 1, 0.9372549, 1)
@@ -166,6 +168,7 @@ theme_override_styles/normal = ExtResource("5_og0v7")
 theme_override_styles/hover = ExtResource("6_qux7l")
 text = "Cadastrar
 "
+script = ExtResource("7_wu7ff")
 
 [node name="login" type="Button" parent="Panel/VBoxContainer" unique_id=565437049]
 custom_minimum_size = Vector2(600, 65)
@@ -177,6 +180,7 @@ theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = ExtResource("5_og0v7")
 theme_override_styles/hover = ExtResource("6_qux7l")
 text = "Ir para Tela de Login"
+script = ExtResource("8_vgpoq")
 
 [node name="ApiTelaCadastro" type="Node" parent="." unique_id=1026490950]
 script = ExtResource("4_x57pu")
