@@ -5,7 +5,7 @@ var telaAtual
 
 func _ready() -> void:
 	Global.game_controller = self
-	mudarTela("res://scenes/TelaCadastro/tela_cadastro.tscn", true)
+	mudarTela("res://scenes/tela_cadastro/tela_cadastro.tscn", true)
 	
 func mudarTela(novaCena: String, deletar: bool):
 	if(telaAtual != null):

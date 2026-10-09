@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://cdf0s57qwhpjy"]
 
-[ext_resource type="Script" uid="uid://cfxtjlbah82ia" path="res://scenes/TelaMenu/tela_menu.gd" id="1_ayl78"]
-[ext_resource type="StyleBox" uid="uid://cuygbstps5nsy" path="res://scenes/styles/headerStyle.tres" id="2_k3oku"]
-[ext_resource type="StyleBox" uid="uid://cnbafflk8u850" path="res://scenes/styles/buttonStyle.tres" id="3_eupey"]
-[ext_resource type="StyleBox" uid="uid://dgw6s8pkc1usn" path="res://scenes/styles/buttonHoverStyle.tres" id="4_ygndh"]
-[ext_resource type="Script" uid="uid://4a4t270uwovu" path="res://scenes/TelaMenu/sair.gd" id="5_fm0pd"]
-[ext_resource type="Script" uid="uid://c4am0cwgr42dg" path="res://scenes/TelaMenu/ranking.gd" id="5_o4mr2"]
-[ext_resource type="Script" uid="uid://dvxmujkidkays" path="res://scenes/TelaMenu/novo_jogo.gd" id="5_u7aoe"]
-[ext_resource type="Script" uid="uid://oh0a447ps3d8" path="res://scenes/TelaMenu/carregar_jogo.gd" id="5_xw6k7"]
+[ext_resource type="Script" uid="uid://cfxtjlbah82ia" path="res://scenes/tela_menu/tela_menu.gd" id="1_cx355"]
+[ext_resource type="StyleBox" uid="uid://cuygbstps5nsy" path="res://scenes/styles/header_style.tres" id="2_bp7kd"]
+[ext_resource type="StyleBox" uid="uid://cnbafflk8u850" path="res://scenes/styles/button_style.tres" id="3_cx355"]
+[ext_resource type="StyleBox" uid="uid://dgw6s8pkc1usn" path="res://scenes/styles/button_hover_style.tres" id="4_cx355"]
+[ext_resource type="Script" uid="uid://dvxmujkidkays" path="res://scenes/tela_menu/novo_jogo.gd" id="5_0opno"]
+[ext_resource type="Script" uid="uid://oh0a447ps3d8" path="res://scenes/tela_menu/carregar_jogo.gd" id="6_nufu8"]
+[ext_resource type="Script" uid="uid://c4am0cwgr42dg" path="res://scenes/tela_menu/ranking.gd" id="7_ewgt6"]
+[ext_resource type="Script" uid="uid://4a4t270uwovu" path="res://scenes/tela_menu/sair.gd" id="8_w6ya0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b12lk"]
 bg_color = Color(0.95686275, 1, 0.9372549, 1)
@@ -21,14 +21,14 @@ border_width_bottom = 3
 border_color = Color(0, 0, 0, 1)
 shadow_size = 2
 
-[node name="tela_menu" type="Control" unique_id=282388732]
+[node name="TelaMenu" type="Control" unique_id=282388732]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_ayl78")
+script = ExtResource("1_cx355")
 
 [node name="Background" type="Panel" parent="." unique_id=2140853990]
 layout_mode = 1
@@ -49,7 +49,7 @@ offset_top = -446.0
 offset_bottom = -302.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = ExtResource("2_k3oku")
+theme_override_styles/panel = ExtResource("2_bp7kd")
 
 [node name="Titulo" type="Label" parent="Header" unique_id=1308808273]
 layout_mode = 0
@@ -103,10 +103,10 @@ size_flags_horizontal = 4
 size_flags_vertical = 10
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = ExtResource("3_eupey")
-theme_override_styles/hover = ExtResource("4_ygndh")
+theme_override_styles/normal = ExtResource("3_cx355")
+theme_override_styles/hover = ExtResource("4_cx355")
 text = "Novo Jogo"
-script = ExtResource("5_u7aoe")
+script = ExtResource("5_0opno")
 
 [node name="carregarJogo" type="Button" parent="Menu/VBoxContainer" unique_id=62531986]
 custom_minimum_size = Vector2(600, 80)
@@ -115,10 +115,10 @@ size_flags_horizontal = 4
 size_flags_vertical = 10
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = ExtResource("3_eupey")
-theme_override_styles/hover = ExtResource("4_ygndh")
+theme_override_styles/normal = ExtResource("3_cx355")
+theme_override_styles/hover = ExtResource("4_cx355")
 text = "Carregar Jogo"
-script = ExtResource("5_xw6k7")
+script = ExtResource("6_nufu8")
 
 [node name="ranking" type="Button" parent="Menu/VBoxContainer" unique_id=799006120]
 custom_minimum_size = Vector2(600, 80)
@@ -127,10 +127,10 @@ size_flags_horizontal = 4
 size_flags_vertical = 10
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = ExtResource("3_eupey")
-theme_override_styles/hover = ExtResource("4_ygndh")
+theme_override_styles/normal = ExtResource("3_cx355")
+theme_override_styles/hover = ExtResource("4_cx355")
 text = "Ranking"
-script = ExtResource("5_o4mr2")
+script = ExtResource("7_ewgt6")
 
 [node name="sair" type="Button" parent="Menu/VBoxContainer" unique_id=37841166]
 unique_name_in_owner = true
@@ -140,12 +140,12 @@ size_flags_horizontal = 4
 size_flags_vertical = 10
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = ExtResource("3_eupey")
-theme_override_styles/hover = ExtResource("4_ygndh")
+theme_override_styles/normal = ExtResource("3_cx355")
+theme_override_styles/hover = ExtResource("4_cx355")
 text = "Sair"
-script = ExtResource("5_fm0pd")
+script = ExtResource("8_w6ya0")
 
-[node name="api_menu_criar_jogo" type="Node" parent="." unique_id=1906813267]
+[node name="ApiCriarJogo" type="Node" parent="." unique_id=1906813267]
 
 [connection signal="pressed" from="Menu/VBoxContainer/novoJogo" to="." method="_on_novo_jogo_pressed"]
 [connection signal="pressed" from="Menu/VBoxContainer/carregarJogo" to="." method="_on_carregar_jogo_pressed"]

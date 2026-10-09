@@ -10,6 +10,9 @@ func _on_login_pressed():
 	senha = $Panel/VBoxContainer/SenhaInput.text
 	usuario = $Panel/VBoxContainer/UsuarioInput.text
 	
+	senha = senha.trim_suffix(" ")
+	usuario = usuario.trim_suffix(" ")
+	
 	print("Botão de Login pressionado!")
 	print("Usuario" + usuario)
 	print("Senha" + senha)
@@ -24,11 +27,10 @@ func _on_api_tela_login_api_retorno(retorno):
 	if(retorno == null):
 		print("Login com erro!")
 		$MensagemErro.mostrarMensagem("Usuário inválido!")
-		## ter alguma animaçãozinha seria nice, also: Sumir com o tempo 
 	else:
 		Global.nomeUsuario = retorno["nome"]
 		Global.idUsuario = retorno["id"]
-		Global.game_controller.mudarTela("res://scenes/TelaMenu/tela_menu.tscn", true)
+		Global.game_controller.mudarTela("res://scenes/tela_menu/tela_menu.tscn", true)
 		print("Login bem sucedido!")
 		print("Nome salvo do autoload é "+ Global.nomeUsuario)
 		print("ID de usuario salvo no autoload é: " + str(Global.idUsuario))

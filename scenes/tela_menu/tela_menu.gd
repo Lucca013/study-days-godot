@@ -1,7 +1,7 @@
 extends Control
 	
 func _on_ranking_pressed() -> void:
-	Global.game_controller.mudarTela("res://scenes/TelaRanking/tela_ranking.tscn", false)
+	Global.game_controller.mudarTela("res://scenes/tela_ranking/tela_ranking.tscn", false)
 
 func _on_sair_pressed() -> void:
 	Global.game_controller.sairJogo()

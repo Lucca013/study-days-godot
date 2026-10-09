@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://b4ff3o2bdid6v"]
 
-[ext_resource type="Script" uid="uid://oo6okmtrdnus" path="res://scenes/TelaDialogo/tela_dialogo.gd" id="1_5nqsx"]
-[ext_resource type="StyleBox" uid="uid://cuygbstps5nsy" path="res://scenes/styles/headerStyle.tres" id="1_hr1k8"]
-[ext_resource type="PackedScene" uid="uid://bbgj1vey5yfpr" path="res://scenes/TelaDialogo/caixa_dialogo.tscn" id="3_h1bxw"]
-[ext_resource type="Script" uid="uid://d555ovgrlads" path="res://scenes/TelaDialogo/api_tela_dialogo.gd" id="4_s0pou"]
+[ext_resource type="Script" uid="uid://oo6okmtrdnus" path="res://scenes/tela_dialogo/tela_dialogo.gd" id="1_5nqsx"]
+[ext_resource type="StyleBox" uid="uid://cuygbstps5nsy" path="res://scenes/styles/header_style.tres" id="1_hr1k8"]
+[ext_resource type="PackedScene" uid="uid://bbgj1vey5yfpr" path="res://scenes/tela_dialogo/caixa_dialogo.tscn" id="3_h1bxw"]
+[ext_resource type="Script" uid="uid://d555ovgrlads" path="res://scenes/tela_dialogo/api_tela_dialogo.gd" id="4_s0pou"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5nqsx"]
 bg_color = Color(0.95686275, 1, 0.9372549, 1)

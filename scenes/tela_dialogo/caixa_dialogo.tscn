@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bbgj1vey5yfpr"]
 
-[ext_resource type="Script" uid="uid://b5aih3sn6dqoa" path="res://scenes/TelaDialogo/caixa_dialogo.gd" id="1_baq1o"]
+[ext_resource type="Script" uid="uid://b5aih3sn6dqoa" path="res://scenes/tela_dialogo/caixa_dialogo.gd" id="1_baq1o"]
 
 [node name="CaixaDeDialogo" type="Control" unique_id=1147030571]
 layout_mode = 3

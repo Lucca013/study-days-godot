@@ -8,7 +8,6 @@ func _on_dados_recebidos(retorno):
 	print(retorno)
 	construir_tela(retorno)
 
-## não vai ser necessário, mas não tem um tratamento se a API retornar nenhum dado 
 func construir_tela(dados):
 	print("função construir tela")
 	var posicao : int
@@ -23,7 +22,7 @@ func construir_tela(dados):
 		var LabelPosicao = LabelTabela.new()
 		LabelPosicao.text = str(posicao) 
 		var LabelNome = LabelTabela.new()
-		LabelNome.text = nome
+		LabelNome.text = nome 
 		var LabelPontuacao = LabelTabela.new()
 		LabelPontuacao.text = str(valorPontuacao)
 		%tabela.add_child(LabelPosicao)
@@ -31,4 +30,4 @@ func construir_tela(dados):
 		%tabela.add_child(LabelPontuacao)
 
 func _on_menu_pressed() -> void:
-	Global.game_controller.mudarTela("res://scenes/TelaMenu/tela_menu.tscn", true)
+	Global.game_controller.mudarTela("res://scenes/tela_menu/tela_menu.tscn", true)
