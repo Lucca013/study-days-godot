@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://oh0a447ps3d8" path="res://scenes/tela_menu/carregar_jogo.gd" id="6_nufu8"]
 [ext_resource type="Script" uid="uid://c4am0cwgr42dg" path="res://scenes/tela_menu/ranking.gd" id="7_ewgt6"]
 [ext_resource type="Script" uid="uid://4a4t270uwovu" path="res://scenes/tela_menu/sair.gd" id="8_w6ya0"]
+[ext_resource type="Script" uid="uid://p2qx2kmmjt5u" path="res://scenes/tela_menu/api_criar_jogo.gd" id="9_bp7kd"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b12lk"]
 bg_color = Color(0.95686275, 1, 0.9372549, 1)
@@ -146,6 +147,7 @@ text = "Sair"
 script = ExtResource("8_w6ya0")
 
 [node name="ApiCriarJogo" type="Node" parent="." unique_id=1906813267]
+script = ExtResource("9_bp7kd")
 
 [connection signal="pressed" from="Menu/VBoxContainer/novoJogo" to="." method="_on_novo_jogo_pressed"]
 [connection signal="pressed" from="Menu/VBoxContainer/carregarJogo" to="." method="_on_carregar_jogo_pressed"]
@@ -153,3 +155,4 @@ script = ExtResource("8_w6ya0")
 [connection signal="mouse_entered" from="Menu/VBoxContainer/sair" to="Menu/VBoxContainer/sair" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Menu/VBoxContainer/sair" to="Menu/VBoxContainer/sair" method="_on_mouse_exited"]
 [connection signal="pressed" from="Menu/VBoxContainer/sair" to="." method="_on_sair_pressed"]
+[connection signal="apiRetorno" from="ApiCriarJogo" to="." method="_on_api_criar_jogo_api_retorno"]
