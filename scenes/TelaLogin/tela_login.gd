@@ -1,11 +1,10 @@
 extends Control
 
-signal loginSucedido 
 var usuario : String
 var senha : String
 	
 func _ready():
-	$ErroLabel.hide()
+	$MensagemErro.hide()
 
 func _on_login_pressed():
 	senha = $Panel/VBoxContainer/SenhaInput.text
@@ -15,20 +14,21 @@ func _on_login_pressed():
 	print("Usuario" + usuario)
 	print("Senha" + senha)
 	
-	## Tem bastante coisinha que eu poderia e deveria fazer aqui. Validação de erros.
-	## Se os campos estão vazios, tirar o espaço deles, etc etc
-	
 	var dados = {
 		"nome" : usuario,
 		"senhaHash": senha
 	}
-	$ApiTelaLogin.requisicaoPost(dados)
+	$ApiTelaLogin.requisicaoPost(dados) 
 
 func _on_api_tela_login_api_retorno(retorno):
 	if(retorno == null):
 		print("Login com erro!")
-		$ErroLabel.show()
+		$MensagemErro.mostrarMensagem("Usuário inválido!")
 		## ter alguma animaçãozinha seria nice, also: Sumir com o tempo 
 	else:
-		loginSucedido.emit()
+		Global.nomeUsuario = retorno["nome"]
+		Global.idUsuario = retorno["id"]
+		Global.game_controller.mudarTela("res://scenes/TelaMenu/tela_menu.tscn", true)
 		print("Login bem sucedido!")
+		print("Nome salvo do autoload é "+ Global.nomeUsuario)
+		print("ID de usuario salvo no autoload é: " + str(Global.idUsuario))

@@ -20,7 +20,7 @@ func requisicaoPost(dados):
 	
 	var erro = 	req.request(url, ["Content-Type: application/json"], HTTPClient.METHOD_POST, dados)
 	if erro != OK:
-		print("Erro ao enviar Requisição POST: "+erro)
+		print("Erro ao enviar Requisição POST: " + erro) 
 	else:
 		print("Requisição Post enviada com sucesso!")
 	

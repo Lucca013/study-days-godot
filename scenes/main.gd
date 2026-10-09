@@ -1,27 +1,21 @@
-extends Control
+class_name GameController extends Control
+
+@export var tela: Control
+var telaAtual 
 
 func _ready() -> void:
-	$TelaLogin.hide()
-	$TelaRanking.hide()
-	$TelaMenu.hide()
-	$TelaCadastro.show()
-	$TelaLogin.hide()
+	Global.game_controller = self
+	mudarTela("res://scenes/TelaCadastro/tela_cadastro.tscn", true)
 	
-func _on_login_sucedido() -> void:
-	$TelaLogin.hide()
-	$TelaMenu.show()
-	
-func _on_tela_menu_ranking() -> void:
-	$TelaMenu.hide()
-	$TelaRanking.show()
+func mudarTela(novaCena: String, deletar: bool):
+	if(telaAtual != null):
+		if(deletar):
+			telaAtual.queue_free()
+		else:
+			telaAtual.hide()
+	var nova_tela = load(novaCena).instantiate()
+	tela.add_child(nova_tela)
+	telaAtual = nova_tela
 
-func _on_tela_menu_sair() -> void:
+func sairJogo():
 	get_tree().quit()
-
-func _on_tela_cadastro_tela_login() -> void:
-	$TelaCadastro.hide()
-	$TelaLogin.show()
-	
-func _on_tela_ranking_tela_menu() -> void:
-	$TelaRanking.hide()
-	$TelaMenu.show()

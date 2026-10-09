@@ -60,7 +60,7 @@ text = "StudyDays"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Panel" type="Panel" parent="." unique_id=537454177]
+[node name="Menu" type="Panel" parent="." unique_id=537454177]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -75,7 +75,7 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_k3oku")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=1638649615]
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu" unique_id=1638649615]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -87,7 +87,7 @@ offset_bottom = -16.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Titulo" type="Label" parent="Panel/VBoxContainer" unique_id=740454277]
+[node name="Titulo" type="Label" parent="Menu/VBoxContainer" unique_id=740454277]
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -96,7 +96,7 @@ text = "Menu"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="novoJogo" type="Button" parent="Panel/VBoxContainer" unique_id=269690339]
+[node name="novoJogo" type="Button" parent="Menu/VBoxContainer" unique_id=269690339]
 custom_minimum_size = Vector2(600, 80)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -108,7 +108,7 @@ theme_override_styles/hover = ExtResource("4_ygndh")
 text = "Novo Jogo"
 script = ExtResource("5_u7aoe")
 
-[node name="carregarJogo" type="Button" parent="Panel/VBoxContainer" unique_id=62531986]
+[node name="carregarJogo" type="Button" parent="Menu/VBoxContainer" unique_id=62531986]
 custom_minimum_size = Vector2(600, 80)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -120,7 +120,7 @@ theme_override_styles/hover = ExtResource("4_ygndh")
 text = "Carregar Jogo"
 script = ExtResource("5_xw6k7")
 
-[node name="ranking" type="Button" parent="Panel/VBoxContainer" unique_id=799006120]
+[node name="ranking" type="Button" parent="Menu/VBoxContainer" unique_id=799006120]
 custom_minimum_size = Vector2(600, 80)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -132,7 +132,7 @@ theme_override_styles/hover = ExtResource("4_ygndh")
 text = "Ranking"
 script = ExtResource("5_o4mr2")
 
-[node name="sair" type="Button" parent="Panel/VBoxContainer" unique_id=37841166]
+[node name="sair" type="Button" parent="Menu/VBoxContainer" unique_id=37841166]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(600, 80)
 layout_mode = 2
@@ -145,7 +145,11 @@ theme_override_styles/hover = ExtResource("4_ygndh")
 text = "Sair"
 script = ExtResource("5_fm0pd")
 
-[connection signal="pressed" from="Panel/VBoxContainer/ranking" to="." method="_on_ranking_pressed"]
-[connection signal="mouse_entered" from="Panel/VBoxContainer/sair" to="Panel/VBoxContainer/sair" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Panel/VBoxContainer/sair" to="Panel/VBoxContainer/sair" method="_on_mouse_exited"]
-[connection signal="pressed" from="Panel/VBoxContainer/sair" to="." method="_on_sair_pressed"]
+[node name="api_menu_criar_jogo" type="Node" parent="." unique_id=1906813267]
+
+[connection signal="pressed" from="Menu/VBoxContainer/novoJogo" to="." method="_on_novo_jogo_pressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/carregarJogo" to="." method="_on_carregar_jogo_pressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/ranking" to="." method="_on_ranking_pressed"]
+[connection signal="mouse_entered" from="Menu/VBoxContainer/sair" to="Menu/VBoxContainer/sair" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Menu/VBoxContainer/sair" to="Menu/VBoxContainer/sair" method="_on_mouse_exited"]
+[connection signal="pressed" from="Menu/VBoxContainer/sair" to="." method="_on_sair_pressed"]

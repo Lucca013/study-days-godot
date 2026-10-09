@@ -4,11 +4,13 @@
 [ext_resource type="StyleBox" uid="uid://b7gocd1bhbtq8" path="res://scenes/styles/inputText.tres" id="1_uh3tn"]
 [ext_resource type="StyleBox" uid="uid://7f4ipraxjrf1" path="res://scenes/styles/inputTextFocus.tres" id="2_3v3hc"]
 [ext_resource type="StyleBox" uid="uid://cuygbstps5nsy" path="res://scenes/styles/headerStyle.tres" id="2_joois"]
+[ext_resource type="Script" uid="uid://cmtlofo74c3da" path="res://scenes/TelaCadastro/panel.gd" id="3_8jtov"]
 [ext_resource type="Script" uid="uid://b6bxvch8lswcy" path="res://scenes/TelaCadastro/api_tela_cadastro.gd" id="4_x57pu"]
 [ext_resource type="StyleBox" uid="uid://cnbafflk8u850" path="res://scenes/styles/buttonStyle.tres" id="5_og0v7"]
 [ext_resource type="StyleBox" uid="uid://dgw6s8pkc1usn" path="res://scenes/styles/buttonHoverStyle.tres" id="6_qux7l"]
 [ext_resource type="Script" uid="uid://1wr5fcym6n1h" path="res://scenes/TelaCadastro/cadastro.gd" id="7_wu7ff"]
 [ext_resource type="Script" uid="uid://c8wbyfqe1oac0" path="res://scenes/TelaCadastro/login.gd" id="8_vgpoq"]
+[ext_resource type="Script" uid="uid://c73yu2gfqjfmq" path="res://scenes/TelaCadastro/erroTelaCadastro.gd" id="10_l322e"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x57pu"]
 bg_color = Color(0.95686275, 1, 0.9372549, 1)
@@ -75,6 +77,7 @@ offset_bottom = -208.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_og0v7")
+script = ExtResource("3_8jtov")
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="Panel" unique_id=1577998685]
 layout_mode = 1
@@ -181,6 +184,19 @@ theme_override_styles/normal = ExtResource("5_og0v7")
 theme_override_styles/hover = ExtResource("6_qux7l")
 text = "Ir para Tela de Login"
 script = ExtResource("8_vgpoq")
+
+[node name="MensagemErro" type="RichTextLabel" parent="." unique_id=1402015205]
+layout_mode = 0
+offset_left = 613.0
+offset_top = 874.0
+offset_right = 1301.0
+offset_bottom = 950.0
+theme_override_colors/default_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 35
+text = "Mensagem de Erro! "
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("10_l322e")
 
 [node name="ApiTelaCadastro" type="Node" parent="." unique_id=1026490950]
 script = ExtResource("4_x57pu")

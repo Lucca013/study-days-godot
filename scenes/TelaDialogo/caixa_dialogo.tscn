@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://bbgj1vey5yfpr"]
 
 [ext_resource type="Script" uid="uid://b5aih3sn6dqoa" path="res://scenes/TelaDialogo/caixa_dialogo.gd" id="1_baq1o"]
-[ext_resource type="Texture2D" uid="uid://crxe3kg3k7hpk" path="res://assets/lotad.png" id="2_ukc25"]
 
 [node name="CaixaDeDialogo" type="Control" unique_id=1147030571]
 layout_mode = 3
@@ -11,12 +10,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_baq1o")
-
-[node name="Lotad" type="Sprite2D" parent="." unique_id=1809332201]
-position = Vector2(349, 452)
-scale = Vector2(1.51, 1.4057894)
-texture = ExtResource("2_ukc25")
-flip_h = true
 
 [node name="painelDialogo" type="Panel" parent="." unique_id=583293768]
 layout_mode = 0
@@ -56,3 +49,5 @@ grow_vertical = 2
 theme_override_font_sizes/normal_font_size = 24
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[connection signal="dialogoFinalizado" from="." to="." method="_on_dialogo_finalizado"]

@@ -1,10 +1,13 @@
 extends Control
+
 @export var nomePersonagem:String="Lotad"
 @export var dialogo:String="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas lorem est, molestie sit amet gravida in, consectetur in dui. Suspendisse potenti. Donec tempor nec augue quis scelerisque. Sed in faucibus sapien.":
 	set(n):
 		dialogo=n
 		definirTexto()
 var tween : Tween
+signal dialogoFinalizado
+var textoFinalizado: bool = false
 
 func _ready():
 	gui_input.connect(skipparTexto)
@@ -24,14 +27,23 @@ func definirTexto():
 	tween.tween_property(%Dialogo, "visible_ratio", 1, (dialogo.length() / 30) + 0.5)
 	await tween.finished
 	tween = null
+	dialogoFinalizado.emit()
 	
 func skipparTexto(event: InputEvent):
 	if ! is_node_ready():
 		return
 	
 	if event is InputEventMouseButton and event.is_pressed(): 
-		if tween and tween.is_running():
-			tween.kill()
-			%Dialogo.visible_ratio = 1
+		if(textoFinalizado):
+			self.queue_free()
 		else:
-			definirTexto()
+			if tween and tween.is_running():
+				tween.kill()
+				%Dialogo.visible_ratio = 1
+				dialogoFinalizado.emit()
+			else:
+				definirTexto()
+
+func _on_dialogo_finalizado() -> void:
+	print("Dialogo finalizado! Mais um clique e vai fechar a caixa!")
+	textoFinalizado = true

@@ -8,6 +8,7 @@
 [ext_resource type="StyleBox" uid="uid://dgw6s8pkc1usn" path="res://scenes/styles/buttonHoverStyle.tres" id="6_a1sbq"]
 [ext_resource type="Script" uid="uid://bviyv7p5anqn3" path="res://scenes/TelaLogin/login.gd" id="7_5804y"]
 [ext_resource type="Script" uid="uid://cyilsbmlhtt3m" path="res://scenes/TelaLogin/api_tela_login.gd" id="8_dd6vf"]
+[ext_resource type="Script" uid="uid://c73yu2gfqjfmq" path="res://scenes/TelaCadastro/erroTelaCadastro.gd" id="9_dd6vf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j5ejg"]
 bg_color = Color(0.95686275, 1, 0.9372549, 1)
@@ -154,17 +155,18 @@ script = ExtResource("7_5804y")
 [node name="ApiTelaLogin" type="Node" parent="." unique_id=1552034397]
 script = ExtResource("8_dd6vf")
 
-[node name="ErroLabel" type="Label" parent="." unique_id=308661653]
+[node name="MensagemErro" type="RichTextLabel" parent="." unique_id=637997999]
 layout_mode = 0
-offset_left = 617.0
-offset_top = 873.0
-offset_right = 1300.0
-offset_bottom = 925.0
-theme_override_colors/font_color = Color(1, 0, 0, 1)
-theme_override_font_sizes/font_size = 24
-text = "Erro! Usuário não encontrado, por favor digitar novamente"
+offset_left = 613.0
+offset_top = 874.0
+offset_right = 1301.0
+offset_bottom = 950.0
+theme_override_colors/default_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 35
+text = "Mensagem de Erro! "
 horizontal_alignment = 1
 vertical_alignment = 1
+script = ExtResource("9_dd6vf")
 
 [connection signal="pressed" from="Panel/VBoxContainer/login" to="." method="_on_login_pressed"]
 [connection signal="apiRetorno" from="ApiTelaLogin" to="." method="_on_api_tela_login_api_retorno"]

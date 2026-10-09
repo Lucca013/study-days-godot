@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://dey0h10gfyqcc"]
 
-[ext_resource type="Script" uid="uid://cbv258y0tjunm" path="res://scenes/tela_ranking.gd" id="1_d8tbs"]
-[ext_resource type="Script" uid="uid://nchw41emjobg" path="res://scenes/api_tela_ranking.gd" id="2_jdsb8"]
+[ext_resource type="Script" uid="uid://cbv258y0tjunm" path="res://scenes/TelaRanking/tela_ranking.gd" id="1_d8tbs"]
+[ext_resource type="Script" uid="uid://nchw41emjobg" path="res://scenes/TelaRanking/api_tela_ranking.gd" id="2_jdsb8"]
 [ext_resource type="StyleBox" uid="uid://cuygbstps5nsy" path="res://scenes/styles/headerStyle.tres" id="2_qtkdt"]
 [ext_resource type="StyleBox" uid="uid://cnbafflk8u850" path="res://scenes/styles/buttonStyle.tres" id="4_670vf"]
 [ext_resource type="StyleBox" uid="uid://dgw6s8pkc1usn" path="res://scenes/styles/buttonHoverStyle.tres" id="5_bbhuh"]
-[ext_resource type="Script" uid="uid://c2nj532iuulr0" path="res://scenes/menu.gd" id="6_40ufd"]
+[ext_resource type="Script" uid="uid://c2nj532iuulr0" path="res://scenes/TelaMenu/menu.gd" id="6_40ufd"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_idj0q"]
 bg_color = Color(0.95686275, 1, 0.9372549, 1)

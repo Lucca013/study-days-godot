@@ -1,7 +1,5 @@
 extends Control
 
-signal telaMenu
-
 func _ready() -> void:
 	$ApiTelaRanking.requisicaoGet()
 
@@ -32,6 +30,5 @@ func construir_tela(dados):
 		%tabela.add_child(LabelNome)
 		%tabela.add_child(LabelPontuacao)
 
-
 func _on_menu_pressed() -> void:
-	telaMenu.emit()
+	Global.game_controller.mudarTela("res://scenes/TelaMenu/tela_menu.tscn", true)
