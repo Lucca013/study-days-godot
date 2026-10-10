@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://b6pmnmfvvmita"]
+
+[ext_resource type="Script" uid="uid://k7h5e71c7qub" path="res://scenes/tela_jogos_salvos/botao_save.gd" id="1_5s3mf"]
+
+[node name="BotaoSave" type="Panel" unique_id=1547336504]
+custom_minimum_size = Vector2(500, 150)
+offset_left = 189.0
+offset_top = 263.0
+offset_right = 1477.0
+offset_bottom = 447.0
+script = ExtResource("1_5s3mf")
+TituloEvento = "TITULO"
+Pontos = "000"
+idJogo = "0"
+
+[node name="TituloEvento" type="RichTextLabel" parent="." unique_id=166390502]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -61.5
+offset_top = -20.0
+offset_right = 61.5
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "EVENTO ATUAL"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Pontos" type="RichTextLabel" parent="." unique_id=1694830466]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_top = -27.0
+offset_right = 139.0
+grow_vertical = 0
+text = "000 PONTOS"
+vertical_alignment = 2
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
