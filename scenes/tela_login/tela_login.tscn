@@ -8,6 +8,7 @@
 [ext_resource type="StyleBox" uid="uid://dgw6s8pkc1usn" path="res://scenes/styles/button_hover_style.tres" id="6_a1sbq"]
 [ext_resource type="Script" uid="uid://bviyv7p5anqn3" path="res://scenes/tela_login/login.gd" id="7_5804y"]
 [ext_resource type="Script" uid="uid://cyilsbmlhtt3m" path="res://scenes/tela_login/api_tela_login.gd" id="8_dd6vf"]
+[ext_resource type="Script" uid="uid://dxx0p0ybph0nw" path="res://scenes/tela_login/cadastro.gd" id="8_rh6ff"]
 [ext_resource type="Script" uid="uid://c73yu2gfqjfmq" path="res://scenes/tela_cadastro/erroTelaCadastro.gd" id="9_dd6vf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j5ejg"]
@@ -140,7 +141,7 @@ theme_override_styles/normal = ExtResource("1_u7q5y")
 theme_override_styles/focus = ExtResource("2_b5xmg")
 placeholder_text = "Digite Sua Senha"
 
-[node name="login" type="Button" parent="Panel/VBoxContainer" unique_id=1372965464]
+[node name="Login" type="Button" parent="Panel/VBoxContainer" unique_id=1372965464]
 custom_minimum_size = Vector2(600, 65)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -151,6 +152,18 @@ theme_override_styles/normal = ExtResource("5_7lcvi")
 theme_override_styles/hover = ExtResource("6_a1sbq")
 text = "Entrar"
 script = ExtResource("7_5804y")
+
+[node name="Cadastro" type="Button" parent="Panel/VBoxContainer" unique_id=1082165614]
+custom_minimum_size = Vector2(600, 65)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("5_7lcvi")
+theme_override_styles/hover = ExtResource("6_a1sbq")
+text = "Voltar ao Cadastro"
+script = ExtResource("8_rh6ff")
 
 [node name="ApiTelaLogin" type="Node" parent="." unique_id=1552034397]
 script = ExtResource("8_dd6vf")
@@ -168,5 +181,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("9_dd6vf")
 
-[connection signal="pressed" from="Panel/VBoxContainer/login" to="." method="_on_login_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/Login" to="." method="_on_login_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/Cadastro" to="." method="_handle_botao_cadastro"]
 [connection signal="apiRetorno" from="ApiTelaLogin" to="." method="_on_api_tela_login_api_retorno"]

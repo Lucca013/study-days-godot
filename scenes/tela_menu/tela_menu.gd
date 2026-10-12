@@ -14,7 +14,7 @@ func _on_novo_jogo_pressed() -> void:
 
 func _on_api_criar_jogo_api_retorno(retorno: Variant) -> void:
 	if(retorno != null):
-		Global.idJogoAtual = retorno["id"]
+		Save.idJogoAtual = retorno["id"]
 		Global.game_controller.mudarTela("res://scenes/tela_dialogo/tela_dialogo.tscn", false)
 	else:
 		print(retorno)

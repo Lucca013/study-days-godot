@@ -3,10 +3,10 @@ extends Control
 var usuario : String
 var senha : String
 	
-func _ready():
+func _ready() -> void:
 	$MensagemErro.hide()
 
-func _on_login_pressed():
+func _on_login_pressed() -> void:
 	senha = $Panel/VBoxContainer/SenhaInput.text
 	usuario = $Panel/VBoxContainer/UsuarioInput.text
 	
@@ -17,13 +17,13 @@ func _on_login_pressed():
 	print("Usuario" + usuario)
 	print("Senha" + senha)
 	
-	var dados = {
+	var dados : Variant = {
 		"nome" : usuario,
 		"senhaHash": senha
 	}
 	$ApiTelaLogin.requisicaoPost(dados) 
 
-func _on_api_tela_login_api_retorno(retorno):
+func _on_api_tela_login_api_retorno(retorno : Variant) -> void:
 	if(retorno == null):
 		print("Login com erro!")
 		$MensagemErro.mostrarMensagem("Usuário inválido!")
@@ -34,3 +34,6 @@ func _on_api_tela_login_api_retorno(retorno):
 		print("Login bem sucedido!")
 		print("Nome salvo do autoload é "+ Global.nomeUsuario)
 		print("ID de usuario salvo no autoload é: " + str(Global.idUsuario))
+
+func _handle_botao_cadastro() -> void:
+	Global.game_controller.mudarTela("res://scenes/tela_cadastro/tela_cadastro.tscn", false)

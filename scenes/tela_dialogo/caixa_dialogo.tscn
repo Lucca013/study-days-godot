@@ -11,14 +11,14 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_baq1o")
 
-[node name="painelDialogo" type="Panel" parent="." unique_id=583293768]
+[node name="PainelDialogo" type="Panel" parent="." unique_id=583293768]
 layout_mode = 0
 offset_left = 79.0
 offset_top = 759.0
 offset_right = 1836.0
 offset_bottom = 1003.0
 
-[node name="PanelContainer" type="PanelContainer" parent="painelDialogo" unique_id=1189569820]
+[node name="PanelContainer" type="PanelContainer" parent="PainelDialogo" unique_id=1189569820]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -26,19 +26,19 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Dialogo" type="RichTextLabel" parent="painelDialogo/PanelContainer" unique_id=1679049061]
+[node name="Dialogo" type="RichTextLabel" parent="PainelDialogo/PanelContainer" unique_id=1679049061]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 32
 bbcode_enabled = true
 
-[node name="Panel" type="Panel" parent="painelDialogo" unique_id=1112524122]
+[node name="Panel" type="Panel" parent="PainelDialogo" unique_id=1112524122]
 layout_mode = 0
 offset_top = -59.0
 offset_right = 347.0
 offset_bottom = -1.0
 
-[node name="nomePersonagem" type="RichTextLabel" parent="painelDialogo/Panel" unique_id=628795700]
+[node name="NomePersonagem" type="RichTextLabel" parent="PainelDialogo/Panel" unique_id=628795700]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -49,5 +49,3 @@ grow_vertical = 2
 theme_override_font_sizes/normal_font_size = 24
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[connection signal="dialogoFinalizado" from="." to="." method="_on_dialogo_finalizado"]

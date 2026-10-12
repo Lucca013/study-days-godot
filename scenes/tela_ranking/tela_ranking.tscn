@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cbv258y0tjunm" path="res://scenes/tela_ranking/tela_ranking.gd" id="1_d8tbs"]
 [ext_resource type="Script" uid="uid://nchw41emjobg" path="res://scenes/tela_ranking/api_tela_ranking.gd" id="2_jdsb8"]
 [ext_resource type="StyleBox" uid="uid://cuygbstps5nsy" path="res://scenes/styles/header_style.tres" id="2_qtkdt"]
+[ext_resource type="Script" uid="uid://d4eke135yfrfo" path="res://scenes/tela_ranking/panel.gd" id="3_0g4cn"]
 [ext_resource type="StyleBox" uid="uid://cnbafflk8u850" path="res://scenes/styles/button_style.tres" id="4_670vf"]
 [ext_resource type="StyleBox" uid="uid://dgw6s8pkc1usn" path="res://scenes/styles/button_hover_style.tres" id="5_bbhuh"]
 [ext_resource type="Script" uid="uid://cfxtjlbah82ia" path="res://scenes/tela_menu/tela_menu.gd" id="6_40ufd"]
@@ -93,6 +94,7 @@ offset_bottom = -88.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_jdsb8")
+script = ExtResource("3_0g4cn")
 
 [node name="Titulo" type="Label" parent="Panel" unique_id=409275363]
 layout_mode = 0

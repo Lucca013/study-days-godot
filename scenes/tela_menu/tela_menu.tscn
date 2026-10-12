@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cfxtjlbah82ia" path="res://scenes/tela_menu/tela_menu.gd" id="1_cx355"]
 [ext_resource type="StyleBox" uid="uid://cuygbstps5nsy" path="res://scenes/styles/header_style.tres" id="2_bp7kd"]
 [ext_resource type="StyleBox" uid="uid://cnbafflk8u850" path="res://scenes/styles/button_style.tres" id="3_cx355"]
+[ext_resource type="Script" uid="uid://dk76yofco8y02" path="res://scenes/tela_menu/menu.gd" id="3_lk8n1"]
 [ext_resource type="StyleBox" uid="uid://dgw6s8pkc1usn" path="res://scenes/styles/button_hover_style.tres" id="4_cx355"]
 [ext_resource type="Script" uid="uid://dvxmujkidkays" path="res://scenes/tela_menu/novo_jogo.gd" id="5_0opno"]
 [ext_resource type="Script" uid="uid://oh0a447ps3d8" path="res://scenes/tela_menu/carregar_jogo.gd" id="6_nufu8"]
@@ -75,6 +76,7 @@ offset_bottom = -208.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_k3oku")
+script = ExtResource("3_lk8n1")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Menu" unique_id=1638649615]
 layout_mode = 1

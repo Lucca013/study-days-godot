@@ -1,24 +1,30 @@
-extends Control
+class_name CaixaDialogo extends Control
 
-@export var nomePersonagem:String="Lotad"
-@export var dialogo:String="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas lorem est, molestie sit amet gravida in, consectetur in dui. Suspendisse potenti. Donec tempor nec augue quis scelerisque. Sed in faucibus sapien.":
+@export var nomePersonagem : String="Lotad"
+@export var dialogo : String="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas lorem est, molestie sit amet gravida in, consectetur in dui. Suspendisse potenti. Donec tempor nec augue quis scelerisque. Sed in faucibus sapien.":
 	set(n):
 		dialogo=n
 		definirTexto()
 var tween : Tween
-signal dialogoFinalizado
 var textoFinalizado: bool = false
 
-func _ready():
-	gui_input.connect(skipparTexto)
+func _ready() -> void:
+	mouse_filter = Control.MOUSE_FILTER_IGNORE
+	$PainelDialogo.mouse_filter = Control.MOUSE_FILTER_STOP
+	$PainelDialogo/PanelContainer.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	%Dialogo.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	$PainelDialogo/Panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	%NomePersonagem.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	
+	$PainelDialogo.gui_input.connect(skipparTexto)
 	definirTexto()
 
-func definirTexto():
+func definirTexto() -> void:
 	if ! is_node_ready():
 		return	
 
 	%Dialogo.text = dialogo
-	%nomePersonagem.text = nomePersonagem
+	%NomePersonagem.text = nomePersonagem
 	%Dialogo.visible_ratio = 0
 		
 	if tween:tween.kill()
@@ -27,23 +33,19 @@ func definirTexto():
 	tween.tween_property(%Dialogo, "visible_ratio", 1, (dialogo.length() / 30) + 0.5)
 	await tween.finished
 	tween = null
-	dialogoFinalizado.emit()
-	
-func skipparTexto(event: InputEvent):
+	textoFinalizado = true 
+
+func skipparTexto(event : InputEvent) -> void:
 	if ! is_node_ready():
 		return
-	
-	if event is InputEventMouseButton and event.is_pressed(): 
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		if(textoFinalizado):
 			self.queue_free()
 		else:
 			if tween and tween.is_running():
 				tween.kill()
+				tween = null
 				%Dialogo.visible_ratio = 1
-				dialogoFinalizado.emit()
+				textoFinalizado = true
 			else:
 				definirTexto()
-
-func _on_dialogo_finalizado() -> void:
-	print("Dialogo finalizado! Mais um clique e vai fechar a caixa!")
-	textoFinalizado = true

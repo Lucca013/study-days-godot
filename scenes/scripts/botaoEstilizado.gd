@@ -13,7 +13,7 @@ func _ready() -> void:
 	mouse_entered.connect(_on_mouse_entered)
 	mouse_exited.connect(_on_mouse_exited)
 
-func _on_mouse_entered():
+func _on_mouse_entered() -> void:
 	if tween:tween.kill()
 	
 	tween = create_tween()
@@ -27,7 +27,7 @@ func _on_mouse_entered():
 	tween.tween_property(hoverStylebox, "border_width_top", 4, 0.5)
 	tween.tween_property(hoverStylebox, "border_width_bottom", 4, 0.5)
 
-func _on_mouse_exited():
+func _on_mouse_exited() -> void:
 	if tween:tween.kill()
 	
 	tween = create_tween()

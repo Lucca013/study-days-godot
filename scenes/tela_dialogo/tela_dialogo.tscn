@@ -2,8 +2,12 @@
 
 [ext_resource type="Script" uid="uid://oo6okmtrdnus" path="res://scenes/tela_dialogo/tela_dialogo.gd" id="1_5nqsx"]
 [ext_resource type="StyleBox" uid="uid://cuygbstps5nsy" path="res://scenes/styles/header_style.tres" id="1_hr1k8"]
-[ext_resource type="PackedScene" uid="uid://bbgj1vey5yfpr" path="res://scenes/tela_dialogo/caixa_dialogo.tscn" id="3_h1bxw"]
+[ext_resource type="Script" uid="uid://bo2xtujkimlsj" path="res://scenes/tela_dialogo/api_decisao.gd" id="4_3a1k6"]
 [ext_resource type="Script" uid="uid://d555ovgrlads" path="res://scenes/tela_dialogo/api_tela_dialogo.gd" id="4_s0pou"]
+[ext_resource type="Script" uid="uid://2d37vx7ke1aq" path="res://scenes/tela_dialogo/api_consequencia.gd" id="5_6dqse"]
+[ext_resource type="Script" uid="uid://crh83ekg1hvum" path="res://scenes/tela_dialogo/api_avancar_evento.gd" id="6_l2kg6"]
+[ext_resource type="StyleBox" uid="uid://cnbafflk8u850" path="res://scenes/styles/button_style.tres" id="7_a56xf"]
+[ext_resource type="StyleBox" uid="uid://dgw6s8pkc1usn" path="res://scenes/styles/button_hover_style.tres" id="8_1x161"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5nqsx"]
 bg_color = Color(0.95686275, 1, 0.9372549, 1)
@@ -26,19 +30,21 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_5nqsx")
 
-[node name="Header" type="Panel" parent="Background" unique_id=436113067]
+[node name="Header" type="Panel" parent="." unique_id=436113067]
+visible = false
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_top = -446.0
-offset_bottom = -302.0
+offset_top = -493.0
+offset_bottom = -370.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = ExtResource("1_hr1k8")
+metadata/_edit_group_ = true
 
-[node name="Titulo" type="Label" parent="Background/Header" unique_id=721032334]
+[node name="Titulo" type="Label" parent="Header" unique_id=721032334]
 layout_mode = 0
 offset_right = 1919.0
 offset_bottom = 141.0
@@ -47,9 +53,43 @@ text = "StudyDays"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CaixaDeDialogo" parent="." unique_id=1147030571 instance=ExtResource("3_h1bxw")]
-unique_name_in_owner = true
-layout_mode = 1
-
-[node name="ApiTelaDialogo" type="Node" parent="." unique_id=1350049511]
+[node name="ApiDialogo" type="Node" parent="." unique_id=1350049511]
 script = ExtResource("4_s0pou")
+
+[node name="ApiDecisao" type="Node" parent="." unique_id=2085016668]
+script = ExtResource("4_3a1k6")
+
+[node name="ApiConsequencia" type="Node" parent="." unique_id=1602747564]
+script = ExtResource("5_6dqse")
+
+[node name="ApiAvancarEvento" type="Node" parent="." unique_id=1038563880]
+script = ExtResource("6_l2kg6")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=2118109588]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Menu" type="Button" parent="." unique_id=1837575339]
+layout_mode = 0
+offset_left = 1627.0
+offset_top = 606.0
+offset_right = 1824.0
+offset_bottom = 716.0
+size_flags_horizontal = 4
+size_flags_vertical = 10
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("7_a56xf")
+theme_override_styles/hover = ExtResource("8_1x161")
+text = "Menu
+"
+
+[connection signal="apiRetorno" from="ApiDialogo" to="." method="_on_dialogo_received"]
+[connection signal="apiRetorno" from="ApiDecisao" to="." method="_on_decisao_received"]
+[connection signal="apiRetorno" from="ApiConsequencia" to="." method="_on_consequencia_received"]
+[connection signal="apiRetorno" from="ApiAvancarEvento" to="." method="_handle_api_avancar_evento"]
+[connection signal="pressed" from="Menu" to="." method="_handle_menu_botao"]

@@ -201,6 +201,7 @@ script = ExtResource("10_l322e")
 [node name="ApiTelaCadastro" type="Node" parent="." unique_id=1026490950]
 script = ExtResource("4_x57pu")
 
+[connection signal="mouse_entered" from="Panel" to="Panel" method="_on_mouse_entered"]
 [connection signal="pressed" from="Panel/VBoxContainer/cadastro" to="." method="_on_cadastro_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/login" to="." method="_on_login_pressed"]
 [connection signal="apiRetorno" from="ApiTelaCadastro" to="." method="_on_api_retorno"]

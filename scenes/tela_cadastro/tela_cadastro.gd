@@ -1,12 +1,12 @@
 extends Control
 
-func _ready():
+func _ready() -> void:
 	$MensagemErro.hide()
 
 func _on_cadastro_pressed() -> void:
-	var usuario = $Panel/VBoxContainer/UsuarioInput.text
-	var senha = $Panel/VBoxContainer/SenhaInput.text
-	var senha2 = $Panel/VBoxContainer/SenhaInput2.text
+	var usuario : String = $Panel/VBoxContainer/UsuarioInput.text
+	var senha : String = $Panel/VBoxContainer/SenhaInput.text
+	var senha2 : String= $Panel/VBoxContainer/SenhaInput2.text
 	
 	usuario = usuario.trim_suffix(" ")
 	senha = senha.trim_suffix(" ")
@@ -20,7 +20,7 @@ func _on_cadastro_pressed() -> void:
 		$MensagemErro.mostrarMensagem("Digite a mesma senha nos dois campos!")
 		return
 		
-	var dados = { 
+	var dados : Variant = { 
 		"nome" = usuario,
 		"senhaHash" = senha
 	}
@@ -29,7 +29,7 @@ func _on_cadastro_pressed() -> void:
 func _on_login_pressed() -> void:
 	Global.game_controller.mudarTela("res://scenes/tela_login/tela_login.tscn", true)
 
-func _on_api_retorno(retorno, response_code) -> void:
+func _on_api_retorno(retorno : Variant, response_code : int) -> void:
 	if(response_code == 201):
 		print(retorno)
 		Global.game_controller.mudarTela("res://scenes/tela_login/tela_login.tscn", true)

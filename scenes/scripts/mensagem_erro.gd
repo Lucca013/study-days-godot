@@ -3,7 +3,7 @@ class_name mensagemErro extends RichTextLabel
 
 var tween: Tween
 
-func mostrarMensagem(mensagemErro: String):
+func mostrarMensagem(mensagemErro: String) -> void:
 	pivot_offset = size/2
 	scale = Vector2.ZERO
 	rotation_degrees = 5
