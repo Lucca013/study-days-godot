@@ -1,12 +1,9 @@
 extends Node
 
-var pontoMelhoria : int
-var pontuacaoAtual : int 
+var pontoMelhoria : int = 0
+var pontuacaoAtual : int = 0 
 var idJogoAtual: int = 1
-
-func aumentarPontuacao(valor : int) -> void:
-	pontuacaoAtual += valor 
-	print("Pontuação aumentada! Pontuação atual: " +str(pontuacaoAtual))
+var listaMelhoriasDesbloquedas : Variant
 	
 func gastarPontoMelhoria(valor : int) -> bool:
 	if(valor > pontoMelhoria):

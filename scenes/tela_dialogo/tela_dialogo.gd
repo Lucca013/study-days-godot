@@ -6,19 +6,18 @@ var dialogo : Variant
 var decisao : Variant 
 
 func _ready() -> void:
-	$ApiDialogo.requisicaoGet()
+	$ApiJogo.requisicaoGet()
 
-func _on_dialogo_received(retorno: Variant) -> void:
+func handle_api_jogo_retorno(retorno: Variant) -> void:
 	dialogo = retorno["eventoAtual"]["dialogos"]
+	Save.pontuacaoAtual = retorno["pontuacaoAtual"]
+	Save.pontoMelhoria = retorno["pontoMelhoria"]
+	Save.listaMelhoriasDesbloquedas = retorno["listaMelhorias"]
 	montarDialogo()
 
 func montarDialogo() -> void:
-	if(posicaoDialogo >= dialogo.size()):
+	if(posicaoDialogo >= dialogo.size()): ## Quando acabar o diálogo, puxa as escolhas do evento
 		$ApiDecisao.requisicaoGet()
-		var caixaDialogoDecisao : CaixaDialogo = cenaCaixaDialogo.instantiate()
-		caixaDialogoDecisao.nomePersonagem = ""
-		caixaDialogoDecisao.dialogo = "O que eu deveria fazer?"
-		self.add_child(caixaDialogoDecisao) 
 		return
 	
 	var dialogoAtual : Variant = dialogo[posicaoDialogo]
@@ -31,23 +30,27 @@ func montarDialogo() -> void:
 	await caixaDialogoAtual.tree_exited
 	
 	posicaoDialogo += 1
-	montarDialogo() # A função se repete até o jogador ter visto todos os diálogos do evento 
+	montarDialogo() ## Monta a próxima caixa de diálogo em loop
 
-func _on_decisao_received(retorno : Variant ) -> void:
+func handle_api_decisao_retorno(retorno : Variant ) -> void:
+	var caixaDialogoDecisao : CaixaDialogo = cenaCaixaDialogo.instantiate()
+	caixaDialogoDecisao.nomePersonagem = ""
+	caixaDialogoDecisao.dialogo = "O que eu deveria fazer?"
+	self.add_child(caixaDialogoDecisao) 
 	montarDecisoes(retorno)
 	
 func montarDecisoes(dados : Variant) -> void:
 	var escolhasAtuais : caixaEscolha = caixaEscolha.instantiate()
 	escolhasAtuais.dados = dados
-	escolhasAtuais.escolhaPressionada.connect(on_escolha_pressionada)
+	escolhasAtuais.escolhaPressionada.connect(handle_escolha_pressionada)
 	$CenterContainer.add_child(escolhasAtuais)
 
-func on_escolha_pressionada(idEscolha : String) -> void:
+func handle_escolha_pressionada(idEscolha : String) -> void:
 	print("Escolha pressionada: " +idEscolha)
 	$ApiConsequencia.idEscolha = idEscolha 
 	$ApiConsequencia.requisicaoGet()
 
-func _on_consequencia_received(retorno : Variant) -> void:
+func handle_api_consequencia_retorno(retorno : Variant) -> void:
 	print("CONSEQUENCIA DO EVENTO COM DECISAO")
 	print("IDJOGOATUAL: " + str(Save.idJogoAtual))
 	print(retorno)
@@ -57,24 +60,16 @@ func _on_consequencia_received(retorno : Variant) -> void:
 	caixaDialogoConsequencia.dialogo = retorno["descricao"]
 	self.add_child(caixaDialogoConsequencia) 
 
-	Save.aumentarPontuacao(retorno["valorPontuacao"])
+	Save.pontuacaoAtual = retorno["pontuacaoAtual"]
 	await caixaDialogoConsequencia.tree_exited
 	$ApiAvancarEvento.requisicaoPost(null)
 
 func _handle_api_avancar_evento(retorno : Variant) -> void:
 	posicaoDialogo = 0
-	$ApiDialogo.requisicaoGet()
+	$ApiJogo.requisicaoGet()
 	
 func _handle_menu_botao() -> void:
 	Global.game_controller.mudarTela("res://scenes/tela_menu/tela_menu.tscn", true) 
-	
-## 1 - Receber o dialogo da API - OK 
-## 2 - Chamar a função montarDialogo(dialogo) - OK 
-## 3 - Instancia uma nova caixa de dialogo e passa os dados - OK 
-## 4 - Cada vez que ela se destrói, monta de novo com o próximo dialogo - OK 
-## 5 - Repete até acabar o diálogo, aí mostra as escolhas do evento - OK 
-## 6 - Implementar a API para enviar a escolha e o evento para receber a consequência - OK 
-## 7 - Avançar Evento até o jogo terminar - OK 
-## 8 - Salvar o jogo? 
 
-## também tem o componente do personagem, que eu ainda não montei, mas vou fazer isso alguma hora
+func handle_melhoria_botao() -> void:
+	Global.game_controller.mudarTela("res://scenes/tela_melhoria/tela_melhoria.tscn", false)

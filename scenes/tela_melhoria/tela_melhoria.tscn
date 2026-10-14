@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://w4fd50j1s52g"]
+
+[ext_resource type="Script" uid="uid://cp4p5db8sek6j" path="res://scenes/tela_melhoria/tela_melhoria.gd" id="1_jogfp"]
+[ext_resource type="Script" uid="uid://8hhi6bc287i5" path="res://scenes/tela_melhoria/api_melhoria.gd" id="1_xouml"]
+[ext_resource type="StyleBox" uid="uid://cuygbstps5nsy" path="res://scenes/styles/header_style.tres" id="2_amjdg"]
+[ext_resource type="Script" uid="uid://b7fg05c7f8txm" path="res://scenes/tela_melhoria/api_liberar_melhoria.gd" id="3_5ijf8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ijf8"]
+bg_color = Color(0.95686275, 1, 0.9372549, 1)
+
+[node name="TelaMelhoria" type="Control" unique_id=882297410]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jogfp")
+
+[node name="Background" type="Panel" parent="." unique_id=1879639274]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5ijf8")
+
+[node name="Header" type="Panel" parent="." unique_id=411434431]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -493.0
+offset_bottom = -370.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("2_amjdg")
+metadata/_edit_group_ = true
+
+[node name="Titulo" type="Label" parent="Header" unique_id=1876011014]
+layout_mode = 0
+offset_right = 1919.0
+offset_bottom = 141.0
+theme_override_font_sizes/font_size = 60
+text = "StudyDays"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ApiLiberarMelhoria" type="Node" parent="." unique_id=492075689]
+script = ExtResource("3_5ijf8")
+
+[node name="ApiMelhoria" type="Node" parent="." unique_id=1440572807]
+script = ExtResource("1_xouml")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1679314267]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ArvoreMelhoria" type="VBoxContainer" parent="CenterContainer" unique_id=394588923]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="PrimeiraColuna" type="HBoxContainer" parent="CenterContainer/ArvoreMelhoria" unique_id=1208256203]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SegundaColuna" type="HBoxContainer" parent="CenterContainer/ArvoreMelhoria" unique_id=1486378091]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TerceiraColuna" type="HBoxContainer" parent="CenterContainer/ArvoreMelhoria" unique_id=1145300539]
+layout_mode = 2
+size_flags_vertical = 3
+
+[connection signal="apiRetorno" from="ApiLiberarMelhoria" to="." method="handle_api_liberar_melhoria_retorno"]
+[connection signal="apiRetorno" from="ApiMelhoria" to="." method="handle_api_melhoria_retorno"]

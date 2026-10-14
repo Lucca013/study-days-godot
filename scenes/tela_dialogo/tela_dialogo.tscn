@@ -53,7 +53,7 @@ text = "StudyDays"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ApiDialogo" type="Node" parent="." unique_id=1350049511]
+[node name="ApiJogo" type="Node" parent="." unique_id=1350049511]
 script = ExtResource("4_s0pou")
 
 [node name="ApiDecisao" type="Node" parent="." unique_id=2085016668]
@@ -88,8 +88,23 @@ theme_override_styles/hover = ExtResource("8_1x161")
 text = "Menu
 "
 
-[connection signal="apiRetorno" from="ApiDialogo" to="." method="_on_dialogo_received"]
-[connection signal="apiRetorno" from="ApiDecisao" to="." method="_on_decisao_received"]
-[connection signal="apiRetorno" from="ApiConsequencia" to="." method="_on_consequencia_received"]
+[node name="Melhoria" type="Button" parent="." unique_id=920456127]
+layout_mode = 0
+offset_left = 1411.0
+offset_top = 606.0
+offset_right = 1608.0
+offset_bottom = 716.0
+size_flags_horizontal = 4
+size_flags_vertical = 10
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("7_a56xf")
+theme_override_styles/hover = ExtResource("8_1x161")
+text = "Melhorias"
+
+[connection signal="apiRetorno" from="ApiJogo" to="." method="handle_api_jogo_retorno"]
+[connection signal="apiRetorno" from="ApiDecisao" to="." method="handle_api_decisao_retorno"]
+[connection signal="apiRetorno" from="ApiConsequencia" to="." method="handle_api_consequencia_retorno"]
 [connection signal="apiRetorno" from="ApiAvancarEvento" to="." method="_handle_api_avancar_evento"]
 [connection signal="pressed" from="Menu" to="." method="_handle_menu_botao"]
+[connection signal="pressed" from="Melhoria" to="." method="handle_melhoria_botao"]
