@@ -114,15 +114,14 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 text = "Usuário"
 
-[node name="UsuarioInput" type="TextEdit" parent="Panel/VBoxContainer" unique_id=469091238]
-custom_minimum_size = Vector2(650, 50)
+[node name="UsuarioInput" type="LineEdit" parent="Panel/VBoxContainer" unique_id=1109107901]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-size_flags_horizontal = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = ExtResource("1_u7q5y")
 theme_override_styles/focus = ExtResource("2_b5xmg")
-placeholder_text = "Digite Seu Usuário"
+placeholder_text = "Digite seu Usuŕio"
 
 [node name="SenhaLabel" type="Label" parent="Panel/VBoxContainer" unique_id=1016727744]
 layout_mode = 2
@@ -131,15 +130,27 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 text = "Senha"
 
-[node name="SenhaInput" type="TextEdit" parent="Panel/VBoxContainer" unique_id=1472526767]
-custom_minimum_size = Vector2(650, 50)
+[node name="SenhaInput" type="LineEdit" parent="Panel/VBoxContainer" unique_id=1983671342]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-size_flags_horizontal = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = ExtResource("1_u7q5y")
 theme_override_styles/focus = ExtResource("2_b5xmg")
-placeholder_text = "Digite Sua Senha"
+placeholder_text = "Digite sua Senha"
+secret = true
+
+[node name="MostrarSenha" type="CheckButton" parent="Panel/VBoxContainer" unique_id=1058994325]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_constants/h_separation = -16
+theme_override_constants/icon_max_width = 46
+theme_override_font_sizes/font_size = 30
+text = "Mostrar Senha"
 
 [node name="Login" type="Button" parent="Panel/VBoxContainer" unique_id=1372965464]
 custom_minimum_size = Vector2(600, 65)
@@ -165,7 +176,7 @@ theme_override_styles/hover = ExtResource("6_a1sbq")
 text = "Voltar ao Cadastro"
 script = ExtResource("8_rh6ff")
 
-[node name="ApiTelaLogin" type="Node" parent="." unique_id=1552034397]
+[node name="Api" type="Node" parent="." unique_id=1552034397]
 script = ExtResource("8_dd6vf")
 
 [node name="MensagemErro" type="RichTextLabel" parent="." unique_id=637997999]
@@ -181,6 +192,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("9_dd6vf")
 
+[connection signal="toggled" from="Panel/VBoxContainer/MostrarSenha" to="." method="handle_mostrar_senha"]
 [connection signal="pressed" from="Panel/VBoxContainer/Login" to="." method="_on_login_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/Cadastro" to="." method="_handle_botao_cadastro"]
-[connection signal="apiRetorno" from="ApiTelaLogin" to="." method="_on_api_tela_login_api_retorno"]
+[connection signal="apiRetorno" from="Api" to="." method="_on_api_tela_login_api_retorno"]

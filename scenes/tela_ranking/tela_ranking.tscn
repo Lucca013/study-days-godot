@@ -168,7 +168,7 @@ size_flags_horizontal = 6
 size_flags_vertical = 2
 columns = 3
 
-[node name="ApiTelaRanking" type="Node" parent="." unique_id=1607450280]
+[node name="Api" type="Node" parent="." unique_id=1607450280]
 script = ExtResource("2_jdsb8")
 
 [node name="menu" type="Button" parent="." unique_id=1822247089]
@@ -187,5 +187,5 @@ theme_override_styles/hover = ExtResource("5_bbhuh")
 text = "Voltar ao Menu"
 script = ExtResource("6_40ufd")
 
-[connection signal="dadosTelaRankingRecebidos" from="ApiTelaRanking" to="." method="_on_dados_recebidos"]
+[connection signal="dadosTelaRankingRecebidos" from="Api" to="." method="_on_dados_recebidos"]
 [connection signal="pressed" from="menu" to="." method="_on_menu_pressed"]

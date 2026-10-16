@@ -1,7 +1,7 @@
 extends Control
 
 func _ready() -> void:
-	$ApiListarJogos.requisicaoGet()
+	$Api.listarJogos()
 
 func _on_api_listar_jogos_api_retorno(retorno : Variant) -> void:
 	if(retorno != null):

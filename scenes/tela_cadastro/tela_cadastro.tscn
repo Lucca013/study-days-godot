@@ -73,7 +73,7 @@ anchor_bottom = 1.0
 offset_left = -344.0
 offset_top = -776.0
 offset_right = 341.0
-offset_bottom = -208.0
+offset_bottom = -155.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_og0v7")
@@ -116,15 +116,14 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 text = "Usuário"
 
-[node name="UsuarioInput" type="TextEdit" parent="Panel/VBoxContainer" unique_id=1851424755]
-custom_minimum_size = Vector2(650, 50)
+[node name="UsuarioInput" type="LineEdit" parent="Panel/VBoxContainer" unique_id=1184093658]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-size_flags_horizontal = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = ExtResource("1_uh3tn")
 theme_override_styles/focus = ExtResource("2_3v3hc")
-placeholder_text = "Digite Seu Usuário"
+placeholder_text = "Digite seu Usuário"
 
 [node name="SenhaLabel" type="Label" parent="Panel/VBoxContainer" unique_id=1530455491]
 layout_mode = 2
@@ -133,15 +132,15 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 text = "Senha"
 
-[node name="SenhaInput" type="TextEdit" parent="Panel/VBoxContainer" unique_id=1689997076]
-custom_minimum_size = Vector2(650, 50)
+[node name="SenhaInput" type="LineEdit" parent="Panel/VBoxContainer" unique_id=1893646475]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-size_flags_horizontal = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = ExtResource("1_uh3tn")
 theme_override_styles/focus = ExtResource("2_3v3hc")
-placeholder_text = "Digite Sua Senha"
+placeholder_text = "Digite sua Senha"
+secret = true
 
 [node name="SenhaLabel2" type="Label" parent="Panel/VBoxContainer" unique_id=1952642776]
 layout_mode = 2
@@ -150,15 +149,27 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 text = "Confirmar Senha"
 
-[node name="SenhaInput2" type="TextEdit" parent="Panel/VBoxContainer" unique_id=765319272]
-custom_minimum_size = Vector2(650, 50)
+[node name="SenhaInput2" type="LineEdit" parent="Panel/VBoxContainer" unique_id=1100033682]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-size_flags_horizontal = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = ExtResource("1_uh3tn")
 theme_override_styles/focus = ExtResource("2_3v3hc")
 placeholder_text = "Confirme sua Senha"
+secret = true
+
+[node name="MostrarSenha" type="CheckButton" parent="Panel/VBoxContainer" unique_id=219773484]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_constants/h_separation = -16
+theme_override_constants/icon_max_width = 46
+theme_override_font_sizes/font_size = 30
+text = "Mostrar Senha"
 
 [node name="cadastro" type="Button" parent="Panel/VBoxContainer" unique_id=2096964629]
 custom_minimum_size = Vector2(600, 65)
@@ -187,10 +198,10 @@ script = ExtResource("8_vgpoq")
 
 [node name="MensagemErro" type="RichTextLabel" parent="." unique_id=1402015205]
 layout_mode = 0
-offset_left = 613.0
-offset_top = 874.0
-offset_right = 1301.0
-offset_bottom = 950.0
+offset_left = 617.0
+offset_top = 922.0
+offset_right = 1305.0
+offset_bottom = 998.0
 theme_override_colors/default_color = Color(1, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 35
 text = "Mensagem de Erro! "
@@ -198,10 +209,11 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("10_l322e")
 
-[node name="ApiTelaCadastro" type="Node" parent="." unique_id=1026490950]
+[node name="Api" type="Node" parent="." unique_id=1026490950]
 script = ExtResource("4_x57pu")
 
 [connection signal="mouse_entered" from="Panel" to="Panel" method="_on_mouse_entered"]
+[connection signal="toggled" from="Panel/VBoxContainer/MostrarSenha" to="." method="handle_mostrar_senha"]
 [connection signal="pressed" from="Panel/VBoxContainer/cadastro" to="." method="_on_cadastro_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/login" to="." method="_on_login_pressed"]
-[connection signal="apiRetorno" from="ApiTelaCadastro" to="." method="_on_api_retorno"]
+[connection signal="apiRetorno" from="Api" to="." method="_on_api_retorno"]

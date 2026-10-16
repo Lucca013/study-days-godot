@@ -13,15 +13,11 @@ func _on_login_pressed() -> void:
 	senha = senha.trim_suffix(" ")
 	usuario = usuario.trim_suffix(" ")
 	
-	print("Botão de Login pressionado!")
-	print("Usuario" + usuario)
-	print("Senha" + senha)
-	
 	var dados : Variant = {
 		"nome" : usuario,
 		"senhaHash": senha
 	}
-	$ApiTelaLogin.requisicaoPost(dados) 
+	$Api.autenticarUsuario(dados) 
 
 func _on_api_tela_login_api_retorno(retorno : Variant) -> void:
 	if(retorno == null):
@@ -37,3 +33,10 @@ func _on_api_tela_login_api_retorno(retorno : Variant) -> void:
 
 func _handle_botao_cadastro() -> void:
 	Global.game_controller.mudarTela("res://scenes/tela_cadastro/tela_cadastro.tscn", false)
+
+
+func handle_mostrar_senha(toggled_on: bool) -> void:
+	if(toggled_on):
+		$Panel/VBoxContainer/SenhaInput.secret = false
+	else:
+		$Panel/VBoxContainer/SenhaInput.secret = true

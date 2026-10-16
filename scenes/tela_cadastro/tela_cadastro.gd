@@ -24,7 +24,7 @@ func _on_cadastro_pressed() -> void:
 		"nome" = usuario,
 		"senhaHash" = senha
 	}
-	$ApiTelaCadastro.requisicaoPost(dados) 
+	$Api.cadastrarUsuario(dados) 
 
 func _on_login_pressed() -> void:
 	Global.game_controller.mudarTela("res://scenes/tela_login/tela_login.tscn", true)
@@ -38,3 +38,11 @@ func _on_api_retorno(retorno : Variant, response_code : int) -> void:
 			$MensagemErro.mostrarMensagem("Nome de usuário já utilizado!")
 		else:
 			$MensagemErro.mostrarMensagem("Erro! Tente novamente, por favor")
+
+func handle_mostrar_senha(toggled_on: bool) -> void:
+	if(toggled_on):
+		$Panel/VBoxContainer/SenhaInput.secret = false
+		$Panel/VBoxContainer/SenhaInput2.secret = false
+	else:
+		$Panel/VBoxContainer/SenhaInput.secret = true
+		$Panel/VBoxContainer/SenhaInput2.secret = true

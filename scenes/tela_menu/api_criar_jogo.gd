@@ -6,6 +6,10 @@ func _ready() -> void:
 	super()
 	url = "http://localhost:8080/jogo/cadastrar/usuario/" + str(Global.idUsuario)
 
+func iniciarNovoJogo() -> void:
+	url = baseUrl + "jogo/cadastrar/usuario/" + str(Global.idUsuario)
+	requisicaoPost(null)
+
 func received(result: int, response_code: int, header:PackedStringArray, body: PackedByteArray) -> void:
 	var string: String = body.get_string_from_utf8()
 	var retorno : Variant = json.parse_string(string)

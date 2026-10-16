@@ -11,8 +11,8 @@ func mudarTela(novaCena: String, deletar: bool) -> void:
 	if(telaAtual != null):
 		if(deletar):
 			telaAtual.queue_free()
-		else:
-			telaAtual.hide()
+		#else:
+			#telaAtual.hide()
 	var nova_tela : Node = load(novaCena).instantiate()
 	tela.add_child(nova_tela) 
 	telaAtual = nova_tela

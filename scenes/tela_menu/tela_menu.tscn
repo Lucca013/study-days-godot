@@ -159,7 +159,7 @@ theme_override_styles/hover = ExtResource("4_cx355")
 text = "Sair"
 script = ExtResource("8_w6ya0")
 
-[node name="ApiCriarJogo" type="Node" parent="." unique_id=1906813267]
+[node name="Api" type="Node" parent="." unique_id=1906813267]
 script = ExtResource("9_bp7kd")
 
 [connection signal="pressed" from="Menu/VBoxContainer/NovoJogo" to="." method="_on_novo_jogo_pressed"]
@@ -171,4 +171,4 @@ script = ExtResource("9_bp7kd")
 [connection signal="mouse_entered" from="Menu/VBoxContainer/Sair" to="Menu/VBoxContainer/Sair" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Menu/VBoxContainer/Sair" to="Menu/VBoxContainer/Sair" method="_on_mouse_exited"]
 [connection signal="pressed" from="Menu/VBoxContainer/Sair" to="." method="_on_sair_pressed"]
-[connection signal="apiRetorno" from="ApiCriarJogo" to="." method="_on_api_criar_jogo_api_retorno"]
+[connection signal="apiRetorno" from="Api" to="." method="_on_api_criar_jogo_api_retorno"]

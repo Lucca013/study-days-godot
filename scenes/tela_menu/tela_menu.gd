@@ -10,7 +10,7 @@ func _on_carregar_jogo_pressed() -> void:
 	Global.game_controller.mudarTela("res://scenes/tela_jogos_salvos/tela_jogo_salvos.tscn", false)
 
 func _on_novo_jogo_pressed() -> void:
-	$ApiCriarJogo.requisicaoPost(null)
+	$Api.iniciarNovoJogo()
 
 func _on_api_criar_jogo_api_retorno(retorno: Variant) -> void:
 	if(retorno != null):

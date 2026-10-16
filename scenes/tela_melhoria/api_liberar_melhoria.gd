@@ -8,7 +8,7 @@ func _ready() -> void:
 	
 func liberarMelhoria(id : int) -> void: 
 	idMelhoria = id
-	url = "http://localhost:8080/melhoria/liberar/" + str(idMelhoria) + "/jogo/" + str(Save.idJogoAtual)
+	url = baseUrl + "melhoria/liberar/" + str(idMelhoria) + "/jogo/" + str(Save.idJogoAtual)
 	requisicaoPost(null)
 
 func received(result: int, response_code: int, header:PackedStringArray, body: PackedByteArray) -> void:

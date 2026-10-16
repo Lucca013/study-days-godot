@@ -78,7 +78,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="ApiListarJogos" type="Node" parent="." unique_id=1288937082]
+[node name="Api" type="Node" parent="." unique_id=1288937082]
 script = ExtResource("2_wh2t6")
 
 [node name="Button" type="Button" parent="." unique_id=949434000]
@@ -100,5 +100,5 @@ theme_override_styles/hover = ExtResource("5_rpiq0")
 text = "Voltar"
 script = ExtResource("6_1lrdl")
 
-[connection signal="apiRetorno" from="ApiListarJogos" to="." method="_on_api_listar_jogos_api_retorno"]
+[connection signal="apiRetorno" from="Api" to="." method="_on_api_listar_jogos_api_retorno"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

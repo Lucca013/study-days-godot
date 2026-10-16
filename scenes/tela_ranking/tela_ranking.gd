@@ -1,7 +1,7 @@
 extends Control
 
 func _ready() -> void:
-	$ApiTelaRanking.requisicaoGet()
+	$Api.gerarRanking()
 
 func _on_dados_recebidos(retorno : Variant) -> void:
 	print("_on_dados_recebidos signal emitido")

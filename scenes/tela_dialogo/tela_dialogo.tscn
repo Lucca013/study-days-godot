@@ -9,6 +9,7 @@
 [ext_resource type="StyleBox" uid="uid://dgw6s8pkc1usn" path="res://scenes/styles/button_hover_style.tres" id="8_1x161"]
 [ext_resource type="Script" uid="uid://br5hrxf4q0k5e" path="res://scenes/tela_dialogo/personagem.gd" id="8_x7po0"]
 [ext_resource type="PackedScene" uid="uid://ceacsoulqpsmq" path="res://scenes/tela_dialogo/posicao_personagem.tscn" id="9_1x161"]
+[ext_resource type="Script" uid="uid://bbgajy3h3aa7y" path="res://scenes/tela_dialogo/pontuacao_label.gd" id="10_x7po0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5nqsx"]
 bg_color = Color(0.95686275, 1, 0.9372549, 1)
@@ -31,6 +32,18 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_5nqsx")
 
+[node name="Personagem" type="Control" parent="." unique_id=2101371313]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("8_x7po0")
+
+[node name="Posicao" parent="Personagem" unique_id=1142130396 instance=ExtResource("9_1x161")]
+layout_mode = 1
+
 [node name="ApiJogo" type="Node" parent="." unique_id=1350049511]
 script = ExtResource("4_s0pou")
 
@@ -42,6 +55,21 @@ script = ExtResource("5_6dqse")
 
 [node name="ApiAvancarEvento" type="Node" parent="." unique_id=1038563880]
 script = ExtResource("6_l2kg6")
+
+[node name="Container" type="Container" parent="." unique_id=220827079]
+custom_minimum_size = Vector2(800, 500)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Menu" type="Button" parent="." unique_id=1837575339]
 layout_mode = 0
@@ -73,44 +101,29 @@ theme_override_styles/hover = ExtResource("8_1x161")
 text = "Melhorias"
 
 [node name="MelhoriaLabel" type="RichTextLabel" parent="." unique_id=1595203211]
-layout_mode = 0
-offset_left = 80.0
-offset_top = 1012.0
-offset_right = 1827.0
-offset_bottom = 1069.0
+layout_mode = 1
+offset_left = 39.0
+offset_top = 21.0
+offset_right = 463.0
+offset_bottom = 78.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 37
 text = "Pontos Melhoria: 0"
 
 [node name="PontuacaoLabel" type="RichTextLabel" parent="." unique_id=437331905]
-layout_mode = 0
-offset_left = 460.0
-offset_top = 1012.0
-offset_right = 1827.0
-offset_bottom = 1069.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -498.0
+offset_top = 21.0
+offset_right = -217.0
+offset_bottom = 78.0
+grow_horizontal = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 37
 text = "Pontuação: 0"
-
-[node name="Personagem" type="Control" parent="." unique_id=2101371313]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("8_x7po0")
-
-[node name="Posicao" parent="Personagem" unique_id=1142130396 instance=ExtResource("9_1x161")]
-layout_mode = 1
-
-[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1670142860]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+script = ExtResource("10_x7po0")
 
 [connection signal="apiRetorno" from="ApiJogo" to="." method="handle_api_jogo_retorno"]
 [connection signal="apiRetorno" from="ApiDecisao" to="." method="handle_api_decisao_retorno"]

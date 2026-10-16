@@ -2,6 +2,12 @@
 
 [ext_resource type="Script" uid="uid://b5aih3sn6dqoa" path="res://scenes/tela_dialogo/caixa_dialogo.gd" id="1_baq1o"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1x161"]
+bg_color = Color(0.53333336, 0.6313726, 0.5294118, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x7po0"]
+bg_color = Color(0.43362, 0.73, 0.42340004, 1)
+
 [node name="CaixaDeDialogo" type="Control" unique_id=1147030571]
 layout_mode = 3
 anchors_preset = 15
@@ -30,6 +36,7 @@ grow_vertical = 2
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_1x161")
 bbcode_enabled = true
 
 [node name="Panel" type="Panel" parent="PainelDialogo" unique_id=1112524122]
@@ -47,5 +54,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/normal_font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_x7po0")
 horizontal_alignment = 1
 vertical_alignment = 1

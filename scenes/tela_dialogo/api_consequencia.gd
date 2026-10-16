@@ -7,7 +7,7 @@ func _ready() -> void:
 	super()
 	
 func processarEscolha() -> void:
-	url = "http://localhost:8080/jogo/" + str(Save.idJogoAtual) + "/escolha/" + idEscolha
+	url = baseUrl + "jogo/" + str(Save.idJogoAtual) + "/escolha/" + idEscolha
 	requisicaoGet()
 	
 func received(result: int, response_code: int, header:PackedStringArray, body: PackedByteArray) -> void:

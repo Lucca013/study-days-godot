@@ -9,15 +9,14 @@ var tween : Tween
 var textoFinalizado: bool = false
 
 func _ready() -> void:
-	mouse_filter = Control.MOUSE_FILTER_IGNORE
-	$PainelDialogo.mouse_filter = Control.MOUSE_FILTER_STOP
+	self.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	$PainelDialogo/PanelContainer.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	%Dialogo.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	$PainelDialogo/Panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	%NomePersonagem.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	$PainelDialogo.mouse_filter = Control.MOUSE_FILTER_STOP
 	
 	$PainelDialogo.gui_input.connect(skipparTexto)
-	# $PainelDialogo.modulate.a = 0
 	$PainelDialogo.scale = Vector2(1.0, 0.9)
 	
 	animarEntrada()

@@ -4,9 +4,17 @@ var caixaEscolha : PackedScene = preload("res://scenes/tela_dialogo/caixa_escolh
 var posicaoDialogo : int = 0
 var dialogo : Variant 
 var decisao : Variant 
+signal cliqueEmTelaVazia(event : InputEvent)
 
 func _ready() -> void:
-	$ApiJogo.requisicaoGet()
+	$ApiJogo.listarJogoEspecifico()
+	print($ApiJogo.url)
+	
+	$MelhoriaLabel.mouse_filter = MouseFilter.MOUSE_FILTER_IGNORE
+	$PontuacaoLabel.mouse_filter = MouseFilter.MOUSE_FILTER_IGNORE
+	$Container.mouse_filter = MouseFilter.MOUSE_FILTER_IGNORE
+	$Personagem.mouse_filter = MouseFilter.MOUSE_FILTER_IGNORE
+	$Background.mouse_filter = MouseFilter.MOUSE_FILTER_IGNORE
 
 func handle_api_jogo_retorno(retorno: Variant) -> void:
 	dialogo = retorno["eventoAtual"]["dialogos"]
@@ -14,14 +22,13 @@ func handle_api_jogo_retorno(retorno: Variant) -> void:
 	Save.pontoMelhoria = retorno["pontoMelhoria"]
 	Save.listaMelhoriasDesbloquedas = retorno["listaMelhorias"]
 	
-	$MelhoriaLabel.text = "Pontos Melhoria: "+str(retorno["pontoMelhoria"])
-	$PontuacaoLabel.text = "Pontuação: "+str(retorno["pontuacaoAtual"])
+	$MelhoriaLabel.text = "Pontos Melhoria: "+str(int(retorno["pontoMelhoria"]))
+	$PontuacaoLabel.text = "Pontuação: " + str(int(retorno["pontuacaoAtual"]))
 	montarDialogo()
 
 func montarDialogo() -> void:
 	if(posicaoDialogo >= dialogo.size()): ## Quando acabar o diálogo, puxa as escolhas do evento
-		$ApiDecisao.requisicaoGet()
-		print($ApiDecisao.url)
+		$ApiDecisao.listarDecisoesValidas()
 		return
 	
 	var dialogoAtual : Variant = dialogo[posicaoDialogo]
@@ -48,13 +55,13 @@ func montarDecisoes(dados : Variant) -> void:
 	var escolhasAtuais : caixaEscolha = caixaEscolha.instantiate()
 	escolhasAtuais.dados = dados
 	escolhasAtuais.escolhaPressionada.connect(handle_escolha_pressionada)
-	$CenterContainer.add_child(escolhasAtuais)
+	$Container.add_child(escolhasAtuais)
 
 func handle_escolha_pressionada(idEscolha : String) -> void:
 	print("Escolha pressionada: " + idEscolha)
 	$ApiConsequencia.idEscolha = str(int(idEscolha))
 	$ApiConsequencia.processarEscolha()
-	print($ApiConsequencia.url)
+	print("Chamando $ApiConsequencia, URL: " + str($ApiConsequencia.url))
 
 func handle_api_consequencia_retorno(retorno : Variant) -> void:
 	print("CONSEQUENCIA DO EVENTO COM DECISAO")
@@ -70,19 +77,26 @@ func handle_api_consequencia_retorno(retorno : Variant) -> void:
 	caixaDialogoConsequencia.dialogo = retorno["descricao"]
 	self.add_child(caixaDialogoConsequencia) 
 
+	$PontuacaoLabel.atualizarPontuacaoInicio(int(retorno["valorPontuacao"]))
 	Save.pontuacaoAtual = retorno["pontuacaoAtual"]
-	$PontuacaoLabel.text = "Pontuação: "+str(retorno["pontuacaoAtual"])
+	
 	await caixaDialogoConsequencia.tree_exited
-	$ApiAvancarEvento.requisicaoPost(null)
-	print($ApiAvancarEvento.url)
+	
+	$ApiAvancarEvento.avancarEvento()
+	print("Chamando $ApiAvancarEvento, URL: " + str($ApiAvancarEvento.url))
 
 func _handle_api_avancar_evento(retorno : Variant) -> void:
 	posicaoDialogo = 0
-	$ApiJogo.requisicaoGet()
-	print($ApiJogo.url)
+	$ApiJogo.listarJogoEspecifico()
+	print("Chamando $ApiJogo, URL: " + str($ApiJogo.url))
 	
 func _handle_menu_botao() -> void:
 	Global.game_controller.mudarTela("res://scenes/tela_menu/tela_menu.tscn", true) 
 
 func handle_melhoria_botao() -> void:
 	Global.game_controller.mudarTela("res://scenes/tela_melhoria/tela_melhoria.tscn", false)
+
+func _unhandled_input(event: InputEvent) -> void:
+	if (event is InputEventMouseButton) and (event.pressed == true):
+		cliqueEmTelaVazia.emit(event)
+		print("Clique em tela vazia!")

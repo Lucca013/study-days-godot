@@ -4,7 +4,10 @@ signal apiRetorno
 
 func _ready() -> void:
 	super()
-	url = "http://localhost:8080/melhoria/listar/" + str(Save.idJogoAtual)
+
+func exibirArvoreMelhoria() -> void:
+	url = baseUrl + "melhoria/listar/" + str(Save.idJogoAtual)
+	requisicaoGet()
 
 func received(result: int, response_code: int, header:PackedStringArray, body: PackedByteArray) -> void:
 	var string: String = body.get_string_from_utf8()

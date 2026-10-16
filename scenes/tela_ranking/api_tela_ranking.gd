@@ -4,7 +4,10 @@ signal dadosTelaRankingRecebidos(retorno : Variant)
 
 func _ready() -> void:
 	super()
-	url = "http://localhost:8080/RecordePessoal/listar"
+
+func gerarRanking() -> void:
+	url = baseUrl + "RecordePessoal/listar"
+	requisicaoGet()
 
 func received(result: int, response_code: int, header:PackedStringArray, body: PackedByteArray) -> void:
 	var retorno : Variant = body.get_string_from_utf8()
