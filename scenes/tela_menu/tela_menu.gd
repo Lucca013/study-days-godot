@@ -18,3 +18,8 @@ func _on_api_criar_jogo_api_retorno(retorno: Variant) -> void:
 		Global.game_controller.mudarTela("res://scenes/tela_dialogo/tela_dialogo.tscn", false)
 	else:
 		print(retorno)
+
+func handle_encerrar_sessao() -> void:
+	Global.idUsuario = 0
+	Global.nomeUsuario = ""
+	Global.game_controller.mudarTela("res://scenes/tela_login/tela_login.tscn", true)

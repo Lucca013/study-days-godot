@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://cfxtjlbah82ia" path="res://scenes/tela_menu/tela_menu.gd" id="1_cx355"]
 [ext_resource type="StyleBox" uid="uid://cuygbstps5nsy" path="res://scenes/styles/header_style.tres" id="2_bp7kd"]
 [ext_resource type="StyleBox" uid="uid://cnbafflk8u850" path="res://scenes/styles/button_style.tres" id="3_cx355"]
-[ext_resource type="Script" uid="uid://dk76yofco8y02" path="res://scenes/tela_menu/menu.gd" id="3_lk8n1"]
 [ext_resource type="StyleBox" uid="uid://dgw6s8pkc1usn" path="res://scenes/styles/button_hover_style.tres" id="4_cx355"]
 [ext_resource type="Script" uid="uid://dvxmujkidkays" path="res://scenes/tela_menu/novo_jogo.gd" id="5_0opno"]
 [ext_resource type="Script" uid="uid://oh0a447ps3d8" path="res://scenes/tela_menu/carregar_jogo.gd" id="6_nufu8"]
@@ -76,7 +75,6 @@ offset_bottom = -208.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_k3oku")
-script = ExtResource("3_lk8n1")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Menu" unique_id=1638649615]
 layout_mode = 1
@@ -90,7 +88,7 @@ offset_bottom = -16.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Titulo" type="Label" parent="Menu/VBoxContainer" unique_id=740454277]
+[node name="MenuLabel" type="Label" parent="Menu/VBoxContainer" unique_id=740454277]
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -99,7 +97,7 @@ text = "Menu"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="novoJogo" type="Button" parent="Menu/VBoxContainer" unique_id=269690339]
+[node name="NovoJogo" type="Button" parent="Menu/VBoxContainer" unique_id=269690339]
 custom_minimum_size = Vector2(600, 80)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -111,7 +109,7 @@ theme_override_styles/hover = ExtResource("4_cx355")
 text = "Novo Jogo"
 script = ExtResource("5_0opno")
 
-[node name="carregarJogo" type="Button" parent="Menu/VBoxContainer" unique_id=62531986]
+[node name="CarregarJogos" type="Button" parent="Menu/VBoxContainer" unique_id=62531986]
 custom_minimum_size = Vector2(600, 80)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -123,7 +121,7 @@ theme_override_styles/hover = ExtResource("4_cx355")
 text = "Carregar Jogo"
 script = ExtResource("6_nufu8")
 
-[node name="ranking" type="Button" parent="Menu/VBoxContainer" unique_id=799006120]
+[node name="Ranking" type="Button" parent="Menu/VBoxContainer" unique_id=799006120]
 custom_minimum_size = Vector2(600, 80)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -135,7 +133,20 @@ theme_override_styles/hover = ExtResource("4_cx355")
 text = "Ranking"
 script = ExtResource("7_ewgt6")
 
-[node name="sair" type="Button" parent="Menu/VBoxContainer" unique_id=37841166]
+[node name="EncerrarSessao" type="Button" parent="Menu/VBoxContainer" unique_id=298936904]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(600, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("3_cx355")
+theme_override_styles/hover = ExtResource("4_cx355")
+text = "Encerrar Sessão"
+script = ExtResource("8_w6ya0")
+
+[node name="Sair" type="Button" parent="Menu/VBoxContainer" unique_id=37841166]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(600, 80)
 layout_mode = 2
@@ -151,10 +162,13 @@ script = ExtResource("8_w6ya0")
 [node name="ApiCriarJogo" type="Node" parent="." unique_id=1906813267]
 script = ExtResource("9_bp7kd")
 
-[connection signal="pressed" from="Menu/VBoxContainer/novoJogo" to="." method="_on_novo_jogo_pressed"]
-[connection signal="pressed" from="Menu/VBoxContainer/carregarJogo" to="." method="_on_carregar_jogo_pressed"]
-[connection signal="pressed" from="Menu/VBoxContainer/ranking" to="." method="_on_ranking_pressed"]
-[connection signal="mouse_entered" from="Menu/VBoxContainer/sair" to="Menu/VBoxContainer/sair" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Menu/VBoxContainer/sair" to="Menu/VBoxContainer/sair" method="_on_mouse_exited"]
-[connection signal="pressed" from="Menu/VBoxContainer/sair" to="." method="_on_sair_pressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/NovoJogo" to="." method="_on_novo_jogo_pressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/CarregarJogos" to="." method="_on_carregar_jogo_pressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/Ranking" to="." method="_on_ranking_pressed"]
+[connection signal="mouse_entered" from="Menu/VBoxContainer/EncerrarSessao" to="Menu/VBoxContainer/EncerrarSessao" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Menu/VBoxContainer/EncerrarSessao" to="Menu/VBoxContainer/EncerrarSessao" method="_on_mouse_exited"]
+[connection signal="pressed" from="Menu/VBoxContainer/EncerrarSessao" to="." method="handle_encerrar_sessao"]
+[connection signal="mouse_entered" from="Menu/VBoxContainer/Sair" to="Menu/VBoxContainer/Sair" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Menu/VBoxContainer/Sair" to="Menu/VBoxContainer/Sair" method="_on_mouse_exited"]
+[connection signal="pressed" from="Menu/VBoxContainer/Sair" to="." method="_on_sair_pressed"]
 [connection signal="apiRetorno" from="ApiCriarJogo" to="." method="_on_api_criar_jogo_api_retorno"]

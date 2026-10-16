@@ -1,8 +1,8 @@
 extends Node
 
-var pontoMelhoria : int = 0
-var pontuacaoAtual : int = 0 
-var idJogoAtual: int = 1
+var pontoMelhoria : int 
+var pontuacaoAtual : int  
+var idJogoAtual: int 
 var listaMelhoriasDesbloquedas : Variant
 	
 func gastarPontoMelhoria(valor : int) -> bool:

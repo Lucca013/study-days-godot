@@ -17,6 +17,10 @@ func _ready() -> void:
 	%NomePersonagem.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	
 	$PainelDialogo.gui_input.connect(skipparTexto)
+	# $PainelDialogo.modulate.a = 0
+	$PainelDialogo.scale = Vector2(1.0, 0.9)
+	
+	animarEntrada()
 	definirTexto()
 
 func definirTexto() -> void:
@@ -34,7 +38,6 @@ func definirTexto() -> void:
 	await tween.finished
 	tween = null
 	textoFinalizado = true 
-
 func skipparTexto(event : InputEvent) -> void:
 	if ! is_node_ready():
 		return
@@ -49,3 +52,10 @@ func skipparTexto(event : InputEvent) -> void:
 				textoFinalizado = true
 			else:
 				definirTexto()
+
+func animarEntrada() -> void:
+	var tweenDialogBox : Tween = get_tree().create_tween()
+	tweenDialogBox.set_trans(Tween.TRANS_CUBIC)
+	tweenDialogBox.set_ease(Tween.EASE_IN)
+	tweenDialogBox.tween_property($PainelDialogo, "scale", Vector2(1.0, 1.0), 0.2)
+	

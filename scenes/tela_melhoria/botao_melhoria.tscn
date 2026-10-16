@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cs0t31eoagv5e"]
 
-[ext_resource type="Script" uid="uid://cq8kquiefe7j2" path="res://botao_melhoria.gd" id="1_a6mni"]
+[ext_resource type="Script" uid="uid://cq8kquiefe7j2" path="res://scenes/tela_melhoria/botao_melhoria.gd" id="1_a6mni"]
 [ext_resource type="StyleBox" uid="uid://cnbafflk8u850" path="res://scenes/styles/button_style.tres" id="1_u4a5k"]
 [ext_resource type="StyleBox" uid="uid://dgw6s8pkc1usn" path="res://scenes/styles/button_hover_style.tres" id="2_xf0jb"]
 

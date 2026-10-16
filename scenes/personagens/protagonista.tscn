@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://b0man17uwhha"]
+
+[ext_resource type="Script" uid="uid://b6x7xsh1ux45e" path="res://scenes/personagens/protagonista.gd" id="1_hl1ry"]
+[ext_resource type="Texture2D" uid="uid://crxe3kg3k7hpk" path="res://assets/lotad.png" id="1_t5eoo"]
+
+[node name="Protagonista" type="TextureRect" unique_id=917179686]
+texture = ExtResource("1_t5eoo")
+script = ExtResource("1_hl1ry")

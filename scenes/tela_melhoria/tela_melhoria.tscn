@@ -4,6 +4,10 @@
 [ext_resource type="Script" uid="uid://8hhi6bc287i5" path="res://scenes/tela_melhoria/api_melhoria.gd" id="1_xouml"]
 [ext_resource type="StyleBox" uid="uid://cuygbstps5nsy" path="res://scenes/styles/header_style.tres" id="2_amjdg"]
 [ext_resource type="Script" uid="uid://b7fg05c7f8txm" path="res://scenes/tela_melhoria/api_liberar_melhoria.gd" id="3_5ijf8"]
+[ext_resource type="StyleBox" uid="uid://cnbafflk8u850" path="res://scenes/styles/button_style.tres" id="5_b8pym"]
+[ext_resource type="StyleBox" uid="uid://dgw6s8pkc1usn" path="res://scenes/styles/button_hover_style.tres" id="6_mhayf"]
+[ext_resource type="Script" uid="uid://gtemobmlhdk2" path="res://scenes/tela_melhoria/menu.gd" id="7_mhayf"]
+[ext_resource type="Script" uid="uid://4vncmuo55036" path="res://scenes/tela_melhoria/mensagem_erro.gd" id="8_p4wct"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ijf8"]
 bg_color = Color(0.95686275, 1, 0.9372549, 1)
@@ -54,29 +58,75 @@ script = ExtResource("3_5ijf8")
 [node name="ApiMelhoria" type="Node" parent="." unique_id=1440572807]
 script = ExtResource("1_xouml")
 
-[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1679314267]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Menu" type="Button" parent="." unique_id=1931738898]
+layout_mode = 0
+offset_left = 1702.0
+offset_top = 182.0
+offset_right = 1911.0
+offset_bottom = 297.0
+size_flags_horizontal = 4
+size_flags_vertical = 10
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("5_b8pym")
+theme_override_styles/hover = ExtResource("6_mhayf")
+text = "Voltar"
+script = ExtResource("7_mhayf")
 
-[node name="ArvoreMelhoria" type="VBoxContainer" parent="CenterContainer" unique_id=394588923]
+[node name="ArvoreMelhoria" type="VBoxContainer" parent="." unique_id=394588923]
 unique_name_in_owner = true
-layout_mode = 2
+layout_mode = 0
+offset_left = 197.0
+offset_top = 297.0
+offset_right = 1704.0
+offset_bottom = 1045.0
 
-[node name="PrimeiraColuna" type="HBoxContainer" parent="CenterContainer/ArvoreMelhoria" unique_id=1208256203]
+[node name="PrimeiraColuna" type="HBoxContainer" parent="ArvoreMelhoria" unique_id=1208256203]
 layout_mode = 2
 size_flags_vertical = 3
+alignment = 1
 
-[node name="SegundaColuna" type="HBoxContainer" parent="CenterContainer/ArvoreMelhoria" unique_id=1486378091]
+[node name="SegundaColuna" type="HBoxContainer" parent="ArvoreMelhoria" unique_id=1486378091]
 layout_mode = 2
 size_flags_vertical = 3
+alignment = 1
 
-[node name="TerceiraColuna" type="HBoxContainer" parent="CenterContainer/ArvoreMelhoria" unique_id=1145300539]
+[node name="TerceiraColuna" type="HBoxContainer" parent="ArvoreMelhoria" unique_id=1145300539]
 layout_mode = 2
 size_flags_vertical = 3
+alignment = 1
+
+[node name="QuartaColuna" type="HBoxContainer" parent="ArvoreMelhoria" unique_id=2084395773]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="QuintaColuna" type="HBoxContainer" parent="ArvoreMelhoria" unique_id=186265623]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="PontosMelhoriaLabel" type="RichTextLabel" parent="." unique_id=1194182181]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 177.0
+offset_right = 1180.0
+offset_bottom = 276.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 32
+vertical_alignment = 2
+
+[node name="MensagemErro" type="RichTextLabel" parent="." unique_id=1685400647]
+layout_mode = 0
+offset_left = 943.0
+offset_top = 196.0
+offset_right = 1653.0
+offset_bottom = 281.0
+theme_override_colors/default_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 32
+text = "Erro! Não pode comprar essa melhoria ainda!"
+script = ExtResource("8_p4wct")
 
 [connection signal="apiRetorno" from="ApiLiberarMelhoria" to="." method="handle_api_liberar_melhoria_retorno"]
 [connection signal="apiRetorno" from="ApiMelhoria" to="." method="handle_api_melhoria_retorno"]
+[connection signal="pressed" from="Menu" to="." method="handle_menu"]

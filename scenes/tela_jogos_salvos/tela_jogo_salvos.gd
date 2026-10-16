@@ -32,9 +32,10 @@ func construirTela(dados: Variant) -> void:
 		$Panel/ScrollContainer/VBoxContainer.add_child(botaoSave)
 		await Global.wait(0.2)
 		
-func _on_save_pressionado(idJogo : int) -> void:
+func _on_save_pressionado(idJogo : String) -> void:
+	print("Botão pressionado!")
 	print("Id do jogo pressionado é:" +str(idJogo))
-	Global.idJogoAtual = idJogo
+	Save.idJogoAtual = int(idJogo)
 	Global.game_controller.mudarTela("res://scenes/tela_dialogo/tela_dialogo.tscn", true)
 
 func _on_button_pressed() -> void:

@@ -1,9 +1,10 @@
 extends Control
 var listaMelhoria : Variant 
-var botaoMelhoriaCena : PackedScene = preload("res://scenes/tela_melhoria/botao_melhoria.tscn")
 
 func _ready() -> void:
 	$ApiMelhoria.requisicaoGet()
+	$PontosMelhoriaLabel.text = "Pontos de Melhoria Disponíveis: " + str(Save.pontoMelhoria)
+	$MensagemErro.hide()
 
 func handle_api_melhoria_retorno(retorno : Variant) -> void:
 	listaMelhoria = retorno
@@ -27,12 +28,17 @@ func adicionarBotao(idMelhoria : int, textoBotao : String, ordem : int, status :
 	botaoMelhoria.text = textoBotao
 	botaoMelhoria.status = status
 	botaoMelhoria.botaoPressionado.connect(handle_comprar_melhoria)
-	if (ordem == 0):
-		$CenterContainer/ArvoreMelhoria/PrimeiraColuna.add_child(botaoMelhoria)
-	if (ordem == 1):
-		$CenterContainer/ArvoreMelhoria/SegundaColuna.add_child(botaoMelhoria)
-	if (ordem == 2):
-		$CenterContainer/ArvoreMelhoria/TerceiraColuna.add_child(botaoMelhoria)	
+	match ordem:
+		0:
+			$ArvoreMelhoria/PrimeiraColuna.add_child(botaoMelhoria)
+		1:
+			$ArvoreMelhoria/SegundaColuna.add_child(botaoMelhoria)
+		2:
+			$ArvoreMelhoria/TerceiraColuna.add_child(botaoMelhoria)	
+		3:
+			$ArvoreMelhoria/QuartaColuna.add_child(botaoMelhoria)	
+		4:
+			$ArvoreMelhoria/QuintaColuna.add_child(botaoMelhoria)	
 
 func handle_comprar_melhoria(idMelhoria : int) -> void:
 	$ApiLiberarMelhoria.liberarMelhoria(idMelhoria)
@@ -44,4 +50,9 @@ func handle_api_liberar_melhoria_retorno(retorno : Variant, response_code : int)
 		return
 	if(response_code == 409):
 		print("Melhoria já adquirida ou bloqueada!")
+		$MensagemErro.mostrarMensagem("Erro! Não pode comprar essa melhoria ainda!")
+		# definitivamente especificar mais depois isso aqui
 		return
+
+func handle_menu() -> void:
+	Global.game_controller.mudarTela("res://scenes/tela_dialogo/tela_dialogo.tscn", true)
