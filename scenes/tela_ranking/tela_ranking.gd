@@ -24,16 +24,15 @@ func construir_tela(dados : Variant) -> void:
 		var LabelNome : Node = LabelTabela.new()
 		LabelNome.text = nome 
 		var LabelPontuacao : Node = LabelTabela.new()
-		LabelPontuacao.text = valorPontuacao 
-		%tabela.add_child(LabelPosicao)
-		%tabela.add_child(LabelNome)
-		%tabela.add_child(LabelPontuacao)
+		LabelPontuacao.text = valorPontuacao
+		var linhaAnimada : LinhaAnimada = LinhaAnimada.new() 
+		linhaAnimada.add_child(LabelPosicao)
+		linhaAnimada.add_child(LabelNome)
+		linhaAnimada.add_child(LabelPontuacao)
+		%tabela.add_child(linhaAnimada)
 
 		await get_tree().process_frame
-		LabelPosicao.animar()
-		LabelNome.animar()
-		LabelPontuacao.animar()
-
+		linhaAnimada.animar()
 		await Global.wait(0.12)
 
 func _on_menu_pressed() -> void:

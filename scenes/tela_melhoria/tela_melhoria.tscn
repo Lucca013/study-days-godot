@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cp4p5db8sek6j" path="res://scenes/tela_melhoria/tela_melhoria.gd" id="1_jogfp"]
 [ext_resource type="Script" uid="uid://8hhi6bc287i5" path="res://scenes/tela_melhoria/api_melhoria.gd" id="1_xouml"]
 [ext_resource type="StyleBox" uid="uid://cuygbstps5nsy" path="res://scenes/styles/header_style.tres" id="2_amjdg"]
+[ext_resource type="PackedScene" uid="uid://cmsil7bjsjgfs" path="res://scenes/tela_melhoria/pop_up_melhoria.tscn" id="2_f7ugs"]
 [ext_resource type="Script" uid="uid://b7fg05c7f8txm" path="res://scenes/tela_melhoria/api_liberar_melhoria.gd" id="3_5ijf8"]
 [ext_resource type="StyleBox" uid="uid://cnbafflk8u850" path="res://scenes/styles/button_style.tres" id="5_b8pym"]
 [ext_resource type="StyleBox" uid="uid://dgw6s8pkc1usn" path="res://scenes/styles/button_hover_style.tres" id="6_mhayf"]
@@ -80,6 +81,7 @@ offset_left = 197.0
 offset_top = 297.0
 offset_right = 1704.0
 offset_bottom = 1045.0
+theme_override_constants/separation = 8
 
 [node name="PrimeiraColuna" type="HBoxContainer" parent="ArvoreMelhoria" unique_id=1208256203]
 layout_mode = 2
@@ -127,6 +129,11 @@ theme_override_font_sizes/normal_font_size = 32
 text = "Erro! Não pode comprar essa melhoria ainda!"
 script = ExtResource("8_p4wct")
 
+[node name="PopUpMelhoria" parent="." unique_id=540669800 instance=ExtResource("2_f7ugs")]
+visible = false
+layout_mode = 1
+
 [connection signal="apiRetorno" from="ApiLiberarMelhoria" to="." method="handle_api_liberar_melhoria_retorno"]
 [connection signal="apiRetorno" from="ApiMelhoria" to="." method="handle_api_melhoria_retorno"]
 [connection signal="pressed" from="Menu" to="." method="handle_menu"]
+[connection signal="liberarMelhoria" from="PopUpMelhoria" to="." method="handle_liberar_melhoria"]

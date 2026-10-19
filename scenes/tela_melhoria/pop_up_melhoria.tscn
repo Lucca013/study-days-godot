@@ -1,0 +1,170 @@
+[gd_scene format=3 uid="uid://cmsil7bjsjgfs"]
+
+[ext_resource type="Script" uid="uid://b0utiygjg5pex" path="res://scenes/tela_melhoria/pop_up_melhoria.gd" id="1_ky7fy"]
+[ext_resource type="StyleBox" uid="uid://cnbafflk8u850" path="res://scenes/styles/button_style.tres" id="2_xraa6"]
+[ext_resource type="StyleBox" uid="uid://dgw6s8pkc1usn" path="res://scenes/styles/button_hover_style.tres" id="3_emlml"]
+[ext_resource type="Script" uid="uid://b3qx0ys6cj5ck" path="res://scenes/tela_melhoria/comprar_melhoria.gd" id="4_emlml"]
+[ext_resource type="Script" uid="uid://c64okgfdhf2c4" path="res://scenes/tela_melhoria/fechar.gd" id="5_h0ssa"]
+[ext_resource type="Texture2D" uid="uid://cntq2coxsj6cr" path="res://assets/check.png" id="6_8skrr"]
+[ext_resource type="Texture2D" uid="uid://cgesnijgwa5yn" path="res://assets/mark.png" id="7_hfcv4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g6h07"]
+bg_color = Color(0.8666667, 0.9529412, 0.8352941, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.17254902, 0.2901961, 0.105882354, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="PopUpMelhoria" type="Control" unique_id=540669800]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ky7fy")
+
+[node name="Panel" type="Panel" parent="." unique_id=1661461929]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -793.0
+offset_top = -359.0
+offset_right = 793.0
+offset_bottom = 453.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_g6h07")
+
+[node name="ContainerMelhoriaTexto" type="VBoxContainer" parent="Panel" unique_id=2115641535]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 23.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TituloMelhoria" type="RichTextLabel" parent="Panel/ContainerMelhoriaTexto" unique_id=1912023019]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 64
+text = "TituloMelhoria"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="DescricaoMelhoria" type="RichTextLabel" parent="Panel/ContainerMelhoriaTexto" unique_id=877076774]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 500)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 30
+text = "DescricaoMelhoria"
+horizontal_alignment = 1
+
+[node name="ComprarMelhoria" type="Button" parent="Panel/ContainerMelhoriaTexto" unique_id=209373261]
+custom_minimum_size = Vector2(600, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("2_xraa6")
+theme_override_styles/hover = ExtResource("3_emlml")
+text = "Comprar Melhoria"
+script = ExtResource("4_emlml")
+
+[node name="Fechar" type="Button" parent="Panel/ContainerMelhoriaTexto" unique_id=862423310]
+custom_minimum_size = Vector2(600, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("2_xraa6")
+theme_override_styles/hover = ExtResource("3_emlml")
+text = "Fechar"
+script = ExtResource("5_h0ssa")
+
+[node name="ContainerLiberarMelhoria" type="VBoxContainer" parent="Panel" unique_id=542739907]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 21.0
+offset_bottom = -28.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TituloMelhoriaLiberada" type="RichTextLabel" parent="Panel/ContainerLiberarMelhoria" unique_id=105639489]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 64
+text = "TituloMelhoria"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="DescricaoLiberar" type="RichTextLabel" parent="Panel/ContainerLiberarMelhoria" unique_id=468017726]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 42
+text = "DescricaoMelhoria"
+horizontal_alignment = 1
+
+[node name="FecharLiberar" type="Button" parent="Panel/ContainerLiberarMelhoria" unique_id=957390890]
+custom_minimum_size = Vector2(600, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("2_xraa6")
+theme_override_styles/hover = ExtResource("3_emlml")
+text = "Fechar"
+script = ExtResource("5_h0ssa")
+
+[node name="Check" type="Sprite2D" parent="Panel/ContainerLiberarMelhoria" unique_id=1667121665]
+unique_name_in_owner = true
+position = Vector2(794, 420)
+texture = ExtResource("6_8skrr")
+
+[node name="Mark" type="Sprite2D" parent="Panel/ContainerLiberarMelhoria" unique_id=1067614888]
+unique_name_in_owner = true
+position = Vector2(794, 422)
+texture = ExtResource("7_hfcv4")
+
+[connection signal="mouse_entered" from="Panel/ContainerMelhoriaTexto/ComprarMelhoria" to="Panel/ContainerMelhoriaTexto/ComprarMelhoria" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Panel/ContainerMelhoriaTexto/ComprarMelhoria" to="Panel/ContainerMelhoriaTexto/ComprarMelhoria" method="_on_mouse_exited"]
+[connection signal="pressed" from="Panel/ContainerMelhoriaTexto/ComprarMelhoria" to="." method="handle_comprar_melhoria"]
+[connection signal="mouse_entered" from="Panel/ContainerMelhoriaTexto/Fechar" to="Panel/ContainerMelhoriaTexto/Fechar" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Panel/ContainerMelhoriaTexto/Fechar" to="Panel/ContainerMelhoriaTexto/Fechar" method="_on_mouse_exited"]
+[connection signal="pressed" from="Panel/ContainerMelhoriaTexto/Fechar" to="." method="handle_fechar"]
+[connection signal="mouse_entered" from="Panel/ContainerLiberarMelhoria/FecharLiberar" to="Panel/ContainerLiberarMelhoria/FecharLiberar" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Panel/ContainerLiberarMelhoria/FecharLiberar" to="Panel/ContainerLiberarMelhoria/FecharLiberar" method="_on_mouse_exited"]
+[connection signal="pressed" from="Panel/ContainerLiberarMelhoria/FecharLiberar" to="." method="handle_fechar_liberar"]

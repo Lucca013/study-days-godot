@@ -121,7 +121,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = ExtResource("1_u7q5y")
 theme_override_styles/focus = ExtResource("2_b5xmg")
-placeholder_text = "Digite seu Usuŕio"
+placeholder_text = "Digite seu Usuário"
 
 [node name="SenhaLabel" type="Label" parent="Panel/VBoxContainer" unique_id=1016727744]
 layout_mode = 2
