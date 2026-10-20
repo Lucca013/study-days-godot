@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bm0ljo2yt2hsk"]
+
+[ext_resource type="Texture2D" uid="uid://crxe3kg3k7hpk" path="res://assets/lotad.png" id="1_w7jev"]
+[ext_resource type="Script" uid="uid://dn3o74arefhn2" path="res://scenes/personagens/professor.gd" id="2_w7jev"]
+
+[node name="Professor" type="TextureRect" unique_id=917179686]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -475.0
+offset_top = -475.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("1_w7jev")
+script = ExtResource("2_w7jev")

@@ -86,9 +86,14 @@ func handle_api_consequencia_retorno(retorno : Variant) -> void:
 	print("Chamando $ApiAvancarEvento, URL: " + str($ApiAvancarEvento.url))
 
 func _handle_api_avancar_evento(retorno : Variant) -> void:
-	posicaoDialogo = 0
-	$ApiJogo.listarJogoEspecifico()
-	print("Chamando $ApiJogo, URL: " + str($ApiJogo.url))
+	if(retorno != null):
+		posicaoDialogo = 0
+		$ApiJogo.listarJogoEspecifico()
+		print("Chamando $ApiJogo, URL: " + str($ApiJogo.url))
+	else:
+		self.queue_free()
+		# Aqui deveria chamar alguma função especial para fazer a tela de final de um save 
+		# me refiro a um pop up ou coisa assim mesmo 
 	
 func _handle_menu_botao() -> void:
 	Global.game_controller.mudarTela("res://scenes/tela_menu/tela_menu.tscn", true) 
