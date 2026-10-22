@@ -1,10 +1,16 @@
 extends Control
 var listaMelhoria : Variant 
+signal atualizarPontuacaoMelhoria
 
 func _ready() -> void:
 	$ApiMelhoria.exibirArvoreMelhoria()
 	$PontosMelhoriaLabel.text = "Pontos de Melhoria Disponíveis: " + str(Save.pontoMelhoria)
 	$MensagemErro.hide()
+
+func atualizarMelhoriaLabel() -> void:
+	Save.pontoMelhoria = Save.pontoMelhoria - 1
+	Save.atualizarPontuacaoMelhoria.emit()
+	$PontosMelhoriaLabel.text = "Pontos de Melhoria Disponíveis: " + str(Save.pontoMelhoria)
 
 func handle_api_melhoria_retorno(retorno : Variant) -> void:
 	listaMelhoria = retorno
@@ -50,6 +56,7 @@ func handle_api_liberar_melhoria_retorno(retorno : Variant, response_code : int)
 	if(response_code == 200):
 		print(retorno)
 		$PopUpMelhoria.mostrar_retorno(retorno, true)
+		atualizarMelhoriaLabel()
 		return
 	if(response_code == 409):
 		print("Melhoria já adquirida ou bloqueada!")

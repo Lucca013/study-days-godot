@@ -21,7 +21,7 @@ func montar_pop_up(idMelhoriaBotao : int, descricaoMelhoria : String, nomeMelhor
 	if(status == "LIBERADO"):
 		$Panel/ContainerMelhoriaTexto/ComprarMelhoria.hide()
 	else:
-		$Panel/ContainerMelhoriaTexto/ComprarMelhoria.hide()
+		$Panel/ContainerMelhoriaTexto/ComprarMelhoria.show()
 	$Panel/ContainerMelhoriaTexto.show()
 	$Panel/ContainerLiberarMelhoria.hide()
 	%Check.hide()

@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://tsri5ll62j2d"]
+
+[ext_resource type="Script" uid="uid://dhxvet8kng6u2" path="res://scenes/tela_titulo.gd" id="1_bp1iq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bp1iq"]
+bg_color = Color(0.58431375, 0.87058824, 0.44313726, 1)
+
+[node name="TelaTitulo" type="Control" unique_id=1527460775]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bp1iq")
+
+[node name="Panel" type="Panel" parent="." unique_id=1590932245]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bp1iq")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel" unique_id=1930687219]
+custom_minimum_size = Vector2(1000, 200)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -100.0
+offset_right = 500.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 128
+text = "Study Days"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Panel" unique_id=1578493387]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.646
+anchor_right = 0.5
+anchor_bottom = 0.646
+offset_left = -626.0
+offset_top = -45.680054
+offset_right = 668.0
+offset_bottom = 46.319946
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 32
+text = "Um Jogo Digital Educacional para o Ensino de Estratégias e Técnicas de Estudo"
+horizontal_alignment = 1

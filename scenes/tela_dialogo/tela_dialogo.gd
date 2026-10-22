@@ -9,12 +9,16 @@ signal cliqueEmTelaVazia(event : InputEvent)
 func _ready() -> void:
 	$ApiJogo.listarJogoEspecifico()
 	print($ApiJogo.url)
+	Save.atualizarPontuacaoMelhoria.connect(atualizar_pontuacao_melhoria)
 	
 	$MelhoriaLabel.mouse_filter = MouseFilter.MOUSE_FILTER_IGNORE
 	$PontuacaoLabel.mouse_filter = MouseFilter.MOUSE_FILTER_IGNORE
 	$Container.mouse_filter = MouseFilter.MOUSE_FILTER_IGNORE
 	$Personagem.mouse_filter = MouseFilter.MOUSE_FILTER_IGNORE
 	$Background.mouse_filter = MouseFilter.MOUSE_FILTER_IGNORE
+
+func atualizar_pontuacao_melhoria()->void:
+	$MelhoriaLabel.text = "Pontos Melhoria:" + str(Save.pontoMelhoria)
 
 func handle_api_jogo_retorno(retorno: Variant) -> void:
 	dialogo = retorno["eventoAtual"]["dialogos"]
