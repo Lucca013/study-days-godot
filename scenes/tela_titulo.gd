@@ -13,7 +13,7 @@ func _ready() -> void:
 	
 	tween.tween_property(self, "modulate:a", 1, 0.4)
 	await tween.finished
-	await Global.wait(1.5)
+	await Global.wait(1.4)
 	
 	tweenSaida = create_tween()
 	tweenSaida.tween_property(self, "modulate:a", 0, 0.4)

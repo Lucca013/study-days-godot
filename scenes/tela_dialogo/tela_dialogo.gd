@@ -16,6 +16,10 @@ func _ready() -> void:
 	$Container.mouse_filter = MouseFilter.MOUSE_FILTER_IGNORE
 	$Personagem.mouse_filter = MouseFilter.MOUSE_FILTER_IGNORE
 	$Background.mouse_filter = MouseFilter.MOUSE_FILTER_IGNORE
+	$PanelDica.mouse_filter = MouseFilter.MOUSE_FILTER_IGNORE
+	
+	$PanelDica.hide()
+	$PanelDica.pivot_offset = size/2
 
 func atualizar_pontuacao_melhoria()->void:
 	$MelhoriaLabel.text = "Pontos Melhoria:" + str(Save.pontoMelhoria)
@@ -109,3 +113,23 @@ func _unhandled_input(event: InputEvent) -> void:
 	if (event is InputEventMouseButton) and (event.pressed == true):
 		cliqueEmTelaVazia.emit(event)
 		print("Clique em tela vazia!")
+
+func handle_dica() -> void:
+	$ApiObterDica.obterDica()
+
+func handle_api_obter_dica_retorno(retorno : String, response_code : int) -> void:
+	var tweenDica : Tween
+	tweenDica = create_tween()
+	tweenDica.set_trans(Tween.TRANS_CUBIC)
+	tweenDica.set_ease(Tween.EASE_IN)
+	
+	if(response_code == 204):
+		$PanelDica/TextoDica.text = "Sem dicas disponíveis no momento!"
+	else:
+		$PanelDica/TextoDica.text = retorno
+		
+	$PanelDica.scale = Vector2.ZERO
+	$PanelDica.modulate.a = 1
+	$PanelDica.show()
+	tweenDica.tween_property($PanelDica, "scale", Vector2.ONE, 0.5)
+	tweenDica.tween_property($PanelDica, "modulate:a", 0, 2)	
