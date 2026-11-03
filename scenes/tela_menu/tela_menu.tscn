@@ -22,7 +22,7 @@ border_width_bottom = 3
 border_color = Color(0, 0, 0, 1)
 shadow_size = 2
 
-[node name="TelaMenu" type="Control" unique_id=282388732]
+[node name="TelaMenu" type="Control" unique_id=282388732 node_paths=PackedStringArray("api")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -30,6 +30,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_cx355")
+api = NodePath("Api")
 
 [node name="Background" type="Panel" parent="." unique_id=2140853990]
 layout_mode = 1
@@ -53,9 +54,12 @@ grow_vertical = 2
 theme_override_styles/panel = ExtResource("2_bp7kd")
 
 [node name="Titulo" type="Label" parent="Header" unique_id=1308808273]
-layout_mode = 0
-offset_right = 1919.0
-offset_bottom = 141.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_font_sizes/font_size = 60
 text = "StudyDays"
 horizontal_alignment = 1
@@ -71,7 +75,7 @@ anchor_bottom = 1.0
 offset_left = -344.0
 offset_top = -776.0
 offset_right = 341.0
-offset_bottom = -208.0
+offset_bottom = -136.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_k3oku")
@@ -133,6 +137,19 @@ theme_override_styles/hover = ExtResource("4_cx355")
 text = "Ranking"
 script = ExtResource("7_ewgt6")
 
+[node name="Configuracao" type="Button" parent="Menu/VBoxContainer" unique_id=1303538462]
+custom_minimum_size = Vector2(600, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("3_cx355")
+theme_override_styles/hover = ExtResource("4_cx355")
+text = "Configuração
+"
+script = ExtResource("5_0opno")
+
 [node name="EncerrarSessao" type="Button" parent="Menu/VBoxContainer" unique_id=298936904]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(600, 80)
@@ -165,6 +182,7 @@ script = ExtResource("9_bp7kd")
 [connection signal="pressed" from="Menu/VBoxContainer/NovoJogo" to="." method="_on_novo_jogo_pressed"]
 [connection signal="pressed" from="Menu/VBoxContainer/CarregarJogos" to="." method="_on_carregar_jogo_pressed"]
 [connection signal="pressed" from="Menu/VBoxContainer/Ranking" to="." method="_on_ranking_pressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/Configuracao" to="." method="handle_configuracao"]
 [connection signal="mouse_entered" from="Menu/VBoxContainer/EncerrarSessao" to="Menu/VBoxContainer/EncerrarSessao" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Menu/VBoxContainer/EncerrarSessao" to="Menu/VBoxContainer/EncerrarSessao" method="_on_mouse_exited"]
 [connection signal="pressed" from="Menu/VBoxContainer/EncerrarSessao" to="." method="handle_encerrar_sessao"]

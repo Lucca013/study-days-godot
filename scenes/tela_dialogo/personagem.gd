@@ -1,7 +1,9 @@
 extends Control
 
 var cenasPersonagem : Dictionary = { 
-	"Protagonista" : preload("res://scenes/personagens/protagonista.tscn")
+	"protagonista" : preload("res://scenes/personagens/protagonista.tscn"),
+	"colega" : preload("res://scenes/personagens/colega.tscn"),
+	"professor": preload("res://scenes/personagens/professor.tscn")
 }
 
 var personagensAtivos : Dictionary = {}

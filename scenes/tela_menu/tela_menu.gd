@@ -1,5 +1,7 @@
 extends Control
 	
+@export var api : Node 
+	
 func _on_ranking_pressed() -> void:
 	Global.game_controller.mudarTela("res://scenes/tela_ranking/tela_ranking.tscn", false)
 
@@ -10,7 +12,7 @@ func _on_carregar_jogo_pressed() -> void:
 	Global.game_controller.mudarTela("res://scenes/tela_jogos_salvos/tela_jogo_salvos.tscn", false)
 
 func _on_novo_jogo_pressed() -> void:
-	$Api.iniciarNovoJogo()
+	api.iniciarNovoJogo()
 
 func _on_api_criar_jogo_api_retorno(retorno: Variant) -> void:
 	if(retorno != null):
@@ -23,3 +25,6 @@ func handle_encerrar_sessao() -> void:
 	Global.idUsuario = 0
 	Global.nomeUsuario = ""
 	Global.game_controller.mudarTela("res://scenes/tela_login/tela_login.tscn", true)
+
+func handle_configuracao() -> void:
+	Global.game_controller.mudarTela("res://scenes/tela_config/tela_config.tscn", true)	

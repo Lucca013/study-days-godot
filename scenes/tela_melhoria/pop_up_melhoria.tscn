@@ -5,7 +5,7 @@
 [ext_resource type="StyleBox" uid="uid://dgw6s8pkc1usn" path="res://scenes/styles/button_hover_style.tres" id="3_emlml"]
 [ext_resource type="Script" uid="uid://b3qx0ys6cj5ck" path="res://scenes/tela_melhoria/comprar_melhoria.gd" id="4_emlml"]
 [ext_resource type="Script" uid="uid://c64okgfdhf2c4" path="res://scenes/tela_melhoria/fechar.gd" id="5_h0ssa"]
-[ext_resource type="Texture2D" uid="uid://cntq2coxsj6cr" path="res://assets/check.png" id="6_8skrr"]
+[ext_resource type="Texture2D" uid="uid://b7gx00e3pfcks" path="res://assets/check.png" id="6_8skrr"]
 [ext_resource type="Texture2D" uid="uid://cgesnijgwa5yn" path="res://assets/mark.png" id="7_hfcv4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g6h07"]

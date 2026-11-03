@@ -1,7 +1,10 @@
 extends Control
 
+@export var tabela : VBoxContainer 
+@export var api : Node 
+
 func _ready() -> void:
-	$Api.gerarRanking()
+	api.gerarRanking()
 
 func _on_dados_recebidos(retorno : Variant) -> void:
 	print("_on_dados_recebidos signal emitido")
@@ -29,7 +32,7 @@ func construir_tela(dados : Variant) -> void:
 		linhaAnimada.add_child(LabelPosicao)
 		linhaAnimada.add_child(LabelNome)
 		linhaAnimada.add_child(LabelPontuacao)
-		%tabela.add_child(linhaAnimada)
+		tabela.add_child(linhaAnimada)
 
 		await get_tree().process_frame
 		linhaAnimada.animar()
