@@ -1,6 +1,6 @@
 class_name GameController extends Control
 
-@export var tela: Control
+var tela: Control = self
 var telaAtual : Node
 
 func _ready() -> void:
