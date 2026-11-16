@@ -18,7 +18,7 @@ border_width_bottom = 3
 border_color = Color(0, 0, 0, 1)
 shadow_size = 2
 
-[node name="TelaConfig" type="Control" unique_id=728789399 node_paths=PackedStringArray("fullscreen_check", "borderless_check", "resolutions")]
+[node name="TelaConfig" type="Control" unique_id=728789399 node_paths=PackedStringArray("fullscreen_check", "borderless_check")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -28,7 +28,6 @@ grow_vertical = 2
 script = ExtResource("1_xpsvh")
 fullscreen_check = NodePath("Menu/VBoxContainer/TelaCheia")
 borderless_check = NodePath("Menu/VBoxContainer/Borderless")
-resolutions = NodePath("Menu/VBoxContainer/Resolucoes")
 
 [node name="Background" type="Panel" parent="." unique_id=1281180419]
 layout_mode = 1
@@ -123,9 +122,6 @@ theme_override_constants/icon_max_width = 46
 theme_override_font_sizes/font_size = 32
 text = "Sem Borda"
 
-[node name="Resolucoes" type="OptionButton" parent="Menu/VBoxContainer" unique_id=1779068211]
-layout_mode = 2
-
 [node name="Sair" type="Button" parent="Menu/VBoxContainer" unique_id=1885280817]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(600, 80)
@@ -141,7 +137,6 @@ script = ExtResource("4_tasfr")
 
 [connection signal="toggled" from="Menu/VBoxContainer/TelaCheia" to="." method="_on_fullscreen_toggled"]
 [connection signal="toggled" from="Menu/VBoxContainer/Borderless" to="." method="_on_bordeless_toggled"]
-[connection signal="item_selected" from="Menu/VBoxContainer/Resolucoes" to="." method="_on_resolutions_item_selected"]
 [connection signal="mouse_entered" from="Menu/VBoxContainer/Sair" to="Menu/VBoxContainer/Sair" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Menu/VBoxContainer/Sair" to="Menu/VBoxContainer/Sair" method="_on_mouse_exited"]
 [connection signal="pressed" from="Menu/VBoxContainer/Sair" to="." method="handle_sair"]

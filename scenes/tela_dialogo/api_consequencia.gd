@@ -8,7 +8,7 @@ func _ready() -> void:
 	
 func processarEscolha() -> void:
 	url = baseUrl + "jogo/" + str(Save.idJogoAtual) + "/escolha/" + idEscolha
-	requisicaoGet()
+	requisicaoPost(null)
 	
 func received(result: int, response_code: int, header:PackedStringArray, body: PackedByteArray) -> void:
 	var string: String = body.get_string_from_utf8()

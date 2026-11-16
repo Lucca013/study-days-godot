@@ -8,7 +8,6 @@ signal cliqueEmTelaVazia(event : InputEvent)
 
 func _ready() -> void:
 	$ApiJogo.listarJogoEspecifico()
-	print($ApiJogo.url)
 	Save.atualizarPontuacaoMelhoria.connect(atualizar_pontuacao_melhoria)
 	
 	$MelhoriaLabel.mouse_filter = MouseFilter.MOUSE_FILTER_IGNORE
@@ -35,14 +34,14 @@ func handle_api_jogo_retorno(retorno: Variant) -> void:
 	montarDialogo()
 
 func montarDialogo() -> void:
-	if(posicaoDialogo >= dialogo.size()): ## Quando acabar o diálogo, puxa as escolhas do evento
+	if(posicaoDialogo >= dialogo.size()): 
 		$ApiDecisao.listarDecisoesValidas()
 		return
 	
 	var dialogoAtual : Variant = dialogo[posicaoDialogo]
-	var caixaDialogoAtual: CaixaDialogo = cenaCaixaDialogo.instantiate()
-	
 	$Personagem.receberDialogo(dialogoAtual)	
+	
+	var caixaDialogoAtual: CaixaDialogo = cenaCaixaDialogo.instantiate()
 	caixaDialogoAtual.nomePersonagem = dialogoAtual["nomePersonagem"]
 	caixaDialogoAtual.dialogo = dialogoAtual["fala"]
 	
@@ -50,7 +49,7 @@ func montarDialogo() -> void:
 	await caixaDialogoAtual.tree_exited
 	
 	posicaoDialogo += 1
-	montarDialogo() ## Monta a próxima caixa de diálogo em loop
+	montarDialogo() 
 
 func handle_api_decisao_retorno(retorno : Variant ) -> void:
 	var caixaDialogoDecisao : CaixaDialogo = cenaCaixaDialogo.instantiate()
@@ -66,16 +65,10 @@ func montarDecisoes(dados : Variant) -> void:
 	$Container.add_child(escolhasAtuais)
 
 func handle_escolha_pressionada(idEscolha : String) -> void:
-	print("Escolha pressionada: " + idEscolha)
 	$ApiConsequencia.idEscolha = str(int(idEscolha))
 	$ApiConsequencia.processarEscolha()
-	print("Chamando $ApiConsequencia, URL: " + str($ApiConsequencia.url))
 
 func handle_api_consequencia_retorno(retorno : Variant) -> void:
-	print("CONSEQUENCIA DO EVENTO COM DECISAO")
-	print("IDJOGOATUAL: " + str(Save.idJogoAtual))
-	print(retorno)
-	
 	for filho in get_children():
 		if filho is CaixaDialogo:
 			filho.queue_free()
@@ -91,13 +84,11 @@ func handle_api_consequencia_retorno(retorno : Variant) -> void:
 	await caixaDialogoConsequencia.tree_exited
 	
 	$ApiAvancarEvento.avancarEvento()
-	print("Chamando $ApiAvancarEvento, URL: " + str($ApiAvancarEvento.url))
 
 func _handle_api_avancar_evento(retorno : Variant) -> void:
 	if(retorno != null):
 		posicaoDialogo = 0
 		$ApiJogo.listarJogoEspecifico()
-		print("Chamando $ApiJogo, URL: " + str($ApiJogo.url))
 	else:
 		self.queue_free()
 		# Aqui deveria chamar alguma função especial para fazer a tela de final de um save 
@@ -112,7 +103,6 @@ func handle_melhoria_botao() -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if (event is InputEventMouseButton) and (event.pressed == true):
 		cliqueEmTelaVazia.emit(event)
-		print("Clique em tela vazia!")
 
 func handle_dica() -> void:
 	$ApiObterDica.obterDica()

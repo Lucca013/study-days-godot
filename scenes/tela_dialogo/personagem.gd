@@ -1,15 +1,13 @@
 extends Control
 
 var cenasPersonagem : Dictionary = { 
-	"protagonista" : preload("res://scenes/personagens/protagonista.tscn"),
+	"Aluno" : preload("res://scenes/personagens/protagonista.tscn"),
 	"colega" : preload("res://scenes/personagens/colega.tscn"),
-	"professor": preload("res://scenes/personagens/professor.tscn")
+	"professor": preload("res://scenes/personagens/professor.tscn"),
+	"narrador": preload("res://scenes/personagens/narrador.tscn")
 }
 
 var personagensAtivos : Dictionary = {}
-
-func _ready() -> void:
-	pass # Replace with function body.
 
 func receberDialogo(dialogo : Variant) -> void:
 	var personagem : PersonagemBase

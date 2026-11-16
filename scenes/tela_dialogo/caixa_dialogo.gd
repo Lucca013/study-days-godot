@@ -1,6 +1,6 @@
 class_name CaixaDialogo extends Control
 
-@export var nomePersonagem : String="Lotad"
+@export var nomePersonagem : String="narrador"
 @export var dialogo : String="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas lorem est, molestie sit amet gravida in, consectetur in dui. Suspendisse potenti. Donec tempor nec augue quis scelerisque. Sed in faucibus sapien.":
 	set(n):
 		dialogo=n
@@ -37,6 +37,7 @@ func definirTexto() -> void:
 	await tween.finished
 	tween = null
 	textoFinalizado = true 
+	
 func skipparTexto(event : InputEvent) -> void:
 	if ! is_node_ready():
 		return
