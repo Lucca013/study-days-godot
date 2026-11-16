@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bb3s2ydibtoxv"]
+
+[ext_resource type="Script" uid="uid://c2hwhi1wenvoq" path="res://scenes/personagens/narrador.gd" id="1_fgpcn"]
+
+[node name="Narrador" type="TextureRect" unique_id=917179686]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -475.0
+offset_top = -475.0
+grow_horizontal = 0
+grow_vertical = 0
+script = ExtResource("1_fgpcn")
